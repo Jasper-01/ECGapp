@@ -36,6 +36,4 @@
 
     <string name="empty">""</string>
     <string name="sampleHR">"85 BPM"</string>
-    <string name="sample_date">26 Oct 2022</string>
-    <string name="sample_time">12:00</string>
 </resources>
