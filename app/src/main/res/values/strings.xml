@@ -21,6 +21,8 @@
     <string name="refresh_bluetooth_status">refresh bluetooth status</string>
     <string name="tap_to_refresh">tap to refresh</string>
 
+    <string name="save">save</string>
+
     <string name="Dolgormaa_name">Namkhainyambuu Dolgormaa (덜거르마)</string>
     <string name="Dolgormaa_ID">32215125</string>
     <string name="Jasper_name">Yap Jas Per (자스퍼)</string>
