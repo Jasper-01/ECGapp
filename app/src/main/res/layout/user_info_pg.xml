@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Settings_pg">
+    tools:context=".UserInfo_pg">
 
     <TextView
         android:id="@+id/MainTitle"
         android:layout_width="226dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="93dp"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="93dp"
         android:gravity="center"
-        android:text="@string/Settings"
+        android:text="@string/UserInformation"
         android:textColor="@color/app_name_color"
         android:textSize="32sp"
         android:textStyle="bold"

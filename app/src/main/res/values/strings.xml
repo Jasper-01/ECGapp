@@ -4,8 +4,9 @@
     <string name="for_a_healthier_heart">-For a healthier heart-</string>
     <string name="my_heart_rate">My Heart Rate</string>
     <string name="bluetooth">Bluetooth</string>
-    <string name="friend_list">Friends List</string>
-    <string name="Settings">Settings</string>
+    <string name="history">History</string>
+    <string name="UserInfo">User Info</string>
+    <string name="UserInformation">User Information</string>
     <string name="credits">Credits</string>
 
     <string name="bluetooth_status">bluetooth_status</string>

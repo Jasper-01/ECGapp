@@ -38,16 +38,16 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
-            android:name=".Credits"
+            android:name=".Credits_pg"
             android:exported="false" />
         <activity
             android:name=".Bluetooth_pg"
             android:exported="false" />
         <activity
-            android:name=".FriendsList_pg"
+            android:name=".History_pg"
             android:exported="false" />
         <activity
-            android:name=".Settings_pg"
+            android:name=".UserInfo_pg"
             android:exported="false" />
         <activity
             android:name=".HeartRate_pg"

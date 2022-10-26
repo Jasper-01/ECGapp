@@ -1,11 +1,11 @@
 package com.example.app
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 
-class FriendsList_pg : AppCompatActivity() {
+class UserInfo_pg : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_friends_list_pg)
+        setContentView(R.layout.user_info_pg)
     }
 }
