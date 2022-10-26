@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">app</string>
+    <string name="app_name_here">App Name Here</string>
+    <string name="for_a_healthier_heart">-For a healthier heart-</string>
+    <string name="my_heart_rate">My Heart Rate</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="friend_list">Friends List</string>
+    <string name="Settings">Settings</string>
+    <string name="credits">Credits</string>
+
+    <string name="bluetooth_status">bluetooth_status</string>
+    <string name="bluetooth_supported">Bluetooth supported</string>
+    <string name="bluetooth_status_on">Bluetooth status: On</string>
+    <string name="bluetooth_status_off">Bluetooth status: Off</string>
+    <string name="bluetooth_status_connected">Bluetooth status: Connected</string>
+    <string name="bluetooth_not_supported">Bluetooth status: Not supported</string>
+    <string name="turn_on_off">Turn On/Off</string>
+    <string name="paired_device">Paired Device:</string>
+    <string name="device_unavailable">Unavailable</string>
+    <string name="refresh_bluetooth_status">refresh bluetooth status</string>
+    <string name="tap_to_refresh">tap to refresh</string>
+
+    <string name="Dolgormaa_name">Namkhainyambuu Dolgormaa (덜거르마)</string>
+    <string name="Dolgormaa_ID">32215125</string>
+    <string name="Jasper_name">Yap Jas Per (자스퍼)</string>
+    <string name="Jasper_ID">32213835</string>
+    <string name="Phoebe_name">Phoebe Lee (피비리)</string>
+    <string name="Phoebe_ID">32215044</string>
+    <string name="Michael_name">Hermanto Michael Augusta (마이클)</string>
+    <string name="Michael_ID">32215039</string>
+    <string name="Josean_name">Chandra Josean Kevin (조세안테빈)</string>
+    <string name="Josean_ID">32215122</string>
+
+    <string name="empty">""</string>
+    <string name="sampleHR">"85 BPM"</string>
+</resources>
