@@ -7,26 +7,6 @@
     tools:context=".UserInfo_pg">
 
     <ImageView
-        android:id="@+id/bgTree"
-        android:layout_width="wrap_content"
-        android:layout_height="300dp"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/background_decor_tree"
-        android:src="@drawable/bg_tree"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/bgPaint"
-        android:layout_width="wrap_content"
-        android:layout_height="300dp"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/background_decor_paint"
-        android:src="@drawable/bg_paint"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
         android:id="@+id/bgRainbow1"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
@@ -47,9 +27,8 @@
         android:contentDescription="@string/background_decor_rainbow"
         android:src="@drawable/bg_rainbow"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bgPaint"
-        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -223,22 +202,198 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <ImageView
+        android:id="@+id/bgDot10"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginBottom="185dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/background_dot"
+        android:src="@drawable/bg_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/MainTitle"
         android:layout_width="226dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="93dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="93dp"
         android:gravity="center"
         android:text="@string/UserInformation"
         android:textColor="@color/app_name_color"
         android:textSize="32sp"
         android:textStyle="bold"
+        android:background="@color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/UserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/username"
+        android:textSize="24sp"
+        android:background="@color/transparent"
+        android:textColor="@color/darkGray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MainTitle" />
+
+    <EditText
+        android:id="@+id/UserNameDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="48dp"
+        android:background="@color/transparent"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="0.2"
+        android:text="@string/sampleName"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@id/UserName"
+        app:layout_constraintTop_toBottomOf="@+id/MainTitle" />
+
+    <View
+        android:id="@+id/underlineName"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/transparent"
+        app:layout_constraintBottom_toBottomOf="@id/UserNameDisplay"
+        app:layout_constraintStart_toStartOf="@id/UserNameDisplay"
+        app:layout_constraintEnd_toEndOf="@id/UserNameDisplay"/>
+
+    <TextView
+        android:id="@+id/UserID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/userID"
+        android:textSize="24sp"
+        android:background="@color/transparent"
+        android:textColor="@color/darkGray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UserName" />
+
+    <TextView
+        android:id="@+id/UserIDDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/sampleID"
+        android:textSize="24sp"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="0.2"
+        android:background="@color/transparent"
+        app:layout_constraintStart_toEndOf="@id/UserID"
+        app:layout_constraintTop_toBottomOf="@+id/UserName" />
+
+    <TextView
+        android:id="@+id/deviceName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/deviceName"
+        android:textSize="24sp"
+        android:background="@color/transparent"
+        android:textColor="@color/darkGray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UserID" />
+
+    <TextView
+        android:id="@+id/deviceNameDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:text="@string/sampleDeviceName"
+        android:textSize="24sp"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="0.2"
+        android:background="@color/transparent"
+        app:layout_constraintStart_toStartOf="@id/deviceName"
+        app:layout_constraintTop_toBottomOf="@+id/deviceName" />
+
+    <Button
+        android:id="@+id/changeName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/change"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toBottomOf="@id/UserNameDisplay"
+        app:layout_constraintTop_toTopOf="@id/UserNameDisplay"
+        app:layout_constraintStart_toEndOf="@+id/UserNameDisplay"
+        tools:layout_editor_absoluteY="229dp" />
+
+    <TextView
+        android:id="@+id/deviceMAC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/deviceMAC"
+        android:textSize="24sp"
+        android:background="@color/transparent"
+        android:textColor="@color/darkGray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deviceNameDisplay" />
+
+    <TextView
+        android:id="@+id/deviceMACDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:text="@string/sampleMAC"
+        android:textSize="24sp"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="0.2"
+        android:background="@color/transparent"
+        app:layout_constraintStart_toStartOf="@id/deviceMAC"
+        app:layout_constraintTop_toBottomOf="@+id/deviceMAC" />
+
+    <TextView
+        android:id="@+id/deviceTimeZone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/deviceTimeZone"
+        android:textSize="24sp"
+        android:background="@color/transparent"
+        android:textColor="@color/darkGray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deviceMACDisplay" />
+
+    <TextView
+        android:id="@+id/deviceTimeZoneDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:text="@string/sampleTimeZone"
+        android:textSize="24sp"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="0.2"
+        android:background="@color/transparent"
+        app:layout_constraintStart_toStartOf="@id/deviceTimeZone"
+        app:layout_constraintTop_toBottomOf="@+id/deviceTimeZone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

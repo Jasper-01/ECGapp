@@ -40,5 +40,17 @@
 
     <string name="empty">""</string>
     <string name="sampleHR">"85 BPM"</string>
+    <string name="sampleName">Jasper</string>
+    <string name="sampleID">221027001</string>
+    <string name="sampleDeviceName">Jasper\'s Phone</string>
+    <string name="sampleMAC">90:2B:34:9E:0E:C0</string>
+    <string name="sampleHistory">2022, October 27 (Thu) 18:54:59 \n85 BPM \n\n2022, October 26 (Wed) 23:45:03 \n88 BPM</string>
+    <string name="sampleTimeZone">GMT+9</string>
     <string name="background_dot">background dot</string>
+    <string name="username">Name:</string>
+    <string name="userID">ID:</string>
+    <string name="deviceName">Device Name:</string>
+    <string name="change">change</string>
+    <string name="deviceMAC">Device MAC address:</string>
+    <string name="deviceTimeZone">Device Time Zone:</string>
 </resources>

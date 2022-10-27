@@ -9,15 +9,16 @@
         <entry key="..\:/Users/Jasper/Documents/BasicMobileLab2/app/src/main/res/drawable/bg_circle.xml" value="0.2705" />
         <entry key="..\:/Users/Jasper/Documents/BasicMobileLab2/app/src/main/res/drawable/bg_circlew.xml" value="0.2705" />
         <entry key="..\:/Users/Jasper/Documents/BasicMobileLab2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2265" />
+        <entry key="..\:/Users/Jasper/Documents/BasicMobileLab2/app/src/main/res/drawable/userinfo_name_change.xml" value="0.1485" />
         <entry key="..\:/Users/Jasper/Documents/BasicMobileLab2/app/src/main/res/layout/activity_bluetooth_pg.xml" value="0.264" />
         <entry key="..\:/Users/Jasper/Documents/BasicMobileLab2/app/src/main/res/layout/activity_credits.xml" value="0.4" />
         <entry key="..\:/Users/Jasper/Documents/BasicMobileLab2/app/src/main/res/layout/activity_credits_pg.xml" value="0.22929936305732485" />
         <entry key="..\:/Users/Jasper/Documents/BasicMobileLab2/app/src/main/res/layout/activity_friends_list_pg.xml" value="0.12552083333333333" />
         <entry key="..\:/Users/Jasper/Documents/BasicMobileLab2/app/src/main/res/layout/activity_heart_rate_pg.xml" value="0.264" />
-        <entry key="..\:/Users/Jasper/Documents/BasicMobileLab2/app/src/main/res/layout/activity_main.xml" value="0.16" />
+        <entry key="..\:/Users/Jasper/Documents/BasicMobileLab2/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Jasper/Documents/BasicMobileLab2/app/src/main/res/layout/activity_settings_pg.xml" value="0.12552083333333333" />
         <entry key="..\:/Users/Jasper/Documents/BasicMobileLab2/app/src/main/res/layout/history_pg.xml" value="0.27291666666666664" />
-        <entry key="..\:/Users/Jasper/Documents/BasicMobileLab2/app/src/main/res/layout/user_info_pg.xml" value="0.1765625" />
+        <entry key="..\:/Users/Jasper/Documents/BasicMobileLab2/app/src/main/res/layout/user_info_pg.xml" value="0.264" />
         <entry key="..\:/Users/Jasper/Documents/BasicMobileLab2/app/src/main/res/xml/styles.xml" value="0.138671875" />
       </map>
     </option>
