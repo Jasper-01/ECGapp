@@ -7,12 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    
-    <color name="background">#E8D6C2</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="background">#FEDAAE</color>
     <color name="app_name_color">#5D6455</color>
     <color name="small_quote_color">#B2755E</color>
     <color name="button_color">#495C60</color>
     <color name="button_bg_color">#7B7167</color>
+    <color name="bg_dots">#FCBF75</color>
 
     <color name="bluetooth_off">#FF0000</color>
 </resources>

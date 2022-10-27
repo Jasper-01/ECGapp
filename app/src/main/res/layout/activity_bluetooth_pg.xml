@@ -6,6 +6,214 @@
     android:layout_height="match_parent"
     tools:context=".Bluetooth_pg">
 
+    <ImageView
+        android:id="@+id/bgRainbow1"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/background_decor_rainbow"
+        android:rotation="30"
+        android:src="@drawable/bg_rainbow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/bgRainbow2"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/background_decor_rainbow"
+        android:src="@drawable/bg_rainbow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bgRainbow3"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginBottom="100dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/background_decor_rainbow"
+        android:rotation="330"
+        android:src="@drawable/bg_rainbow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bgRainbow4"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="8dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/background_decor_rainbow"
+        android:rotation="30"
+        android:src="@drawable/bg_rainbow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bgRainbow5"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="50dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/background_decor_rainbow"
+        android:rotation="30"
+        android:src="@drawable/bg_rainbow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bgRainbow6"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="75dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/background_decor_rainbow"
+        android:rotation="340"
+        android:src="@drawable/bg_rainbow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bgDot1"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/background_dot"
+        android:src="@drawable/bg_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bgDot2"
+        android:contentDescription="@string/background_dot"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:layout_marginBottom="500dp"
+        android:layout_marginStart="20dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/bg_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bgDot3"
+        android:contentDescription="@string/background_dot"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:layout_marginTop = "50dp"
+        android:layout_marginStart="100dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/bg_circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bgDot4"
+        android:contentDescription="@string/background_dot"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:layout_marginBottom="750dp"
+        android:layout_marginStart="80dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/bg_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/bgDot5"
+        android:contentDescription="@string/background_dot"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:layout_marginBottom="320dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/bg_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/bgDot6"
+        android:contentDescription="@string/background_dot"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="85dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/bg_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/bgDot7"
+        android:contentDescription="@string/background_dot"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginTop="450dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/bg_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/bgDot8"
+        android:contentDescription="@string/background_dot"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:layout_marginBottom="50dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/bg_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/bgDot9"
+        android:contentDescription="@string/background_dot"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/bg_circle"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/bgDot10"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginBottom="185dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/background_dot"
+        android:src="@drawable/bg_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/MainTitle"
         android:layout_width="226dp"
@@ -18,6 +226,7 @@
         android:textColor="@color/app_name_color"
         android:textSize="32sp"
         android:textStyle="bold"
+        android:background="@color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,8 +240,9 @@
         android:layout_marginStart="165dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="166dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="0dp"
         android:contentDescription="@string/turn_on_off"
+        android:background="@color/transparent"
         app:layout_constraintBottom_toTopOf="@+id/OnOffButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -41,7 +251,7 @@
         app:srcCompat="@drawable/ic_bluetooth_disable" />
 
     <TextView
-        android:id="@+id/Bluetooth_status"
+        android:id="@+id/BluetoothStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="66dp"
@@ -52,6 +262,7 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="18sp"
+        android:background="@color/transparent"
         app:layout_constraintBottom_toTopOf="@+id/PairedDevice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -69,10 +280,11 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="18sp"
+        android:background="@color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Bluetooth_status" />
+        app:layout_constraintTop_toBottomOf="@+id/BluetoothStatus" />
 
     <TextView
         android:id="@+id/DeviceName"
@@ -85,6 +297,7 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="18sp"
+        android:background="@color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,6 +313,7 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="14sp"
+        android:background="@color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
@@ -125,12 +339,12 @@
         android:layout_width="150dp"
         android:layout_height="48dp"
         android:layout_marginStart="130dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="131dp"
         android:layout_marginBottom="25dp"
         android:text="@string/turn_on_off"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/Bluetooth_status"
+        app:layout_constraintBottom_toTopOf="@+id/BluetoothStatus"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -141,7 +355,7 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="168dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="168dp"
         android:contentDescription="@string/refresh_bluetooth_status"
         android:scaleType="fitXY"

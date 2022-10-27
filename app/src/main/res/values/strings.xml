@@ -1,6 +1,10 @@
 <resources>
+    <string name="background_decor_tree">background decor: tree</string>
+    <string name="background_decor_paint">background decor: paint</string>
+    <string name="background_decor_rainbow">background decor: rainbow</string>
+
     <string name="app_name">app</string>
-    <string name="app_name_here">App Name Here</string>
+    <string name="app_name_here">My HeartBeat</string>
     <string name="for_a_healthier_heart">-For a healthier heart-</string>
     <string name="my_heart_rate">My Heart Rate</string>
     <string name="bluetooth">Bluetooth</string>
@@ -36,4 +40,5 @@
 
     <string name="empty">""</string>
     <string name="sampleHR">"85 BPM"</string>
+    <string name="background_dot">background dot</string>
 </resources>

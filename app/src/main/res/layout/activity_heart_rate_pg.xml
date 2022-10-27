@@ -6,18 +6,227 @@
     android:layout_height="match_parent"
     tools:context=".HeartRate_pg">
 
+    <ImageView
+        android:id="@+id/bgRainbow1"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/background_decor_rainbow"
+        android:rotation="30"
+        android:src="@drawable/bg_rainbow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/bgRainbow2"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/background_decor_rainbow"
+        android:src="@drawable/bg_rainbow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bgRainbow3"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginBottom="100dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/background_decor_rainbow"
+        android:rotation="330"
+        android:src="@drawable/bg_rainbow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bgRainbow4"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="8dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/background_decor_rainbow"
+        android:rotation="30"
+        android:src="@drawable/bg_rainbow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bgRainbow5"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="50dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/background_decor_rainbow"
+        android:rotation="30"
+        android:src="@drawable/bg_rainbow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bgRainbow6"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="75dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/background_decor_rainbow"
+        android:rotation="340"
+        android:src="@drawable/bg_rainbow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bgDot1"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/background_dot"
+        android:src="@drawable/bg_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bgDot2"
+        android:contentDescription="@string/background_dot"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:layout_marginBottom="500dp"
+        android:layout_marginStart="20dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/bg_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bgDot3"
+        android:contentDescription="@string/background_dot"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:layout_marginTop = "50dp"
+        android:layout_marginStart="100dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/bg_circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bgDot4"
+        android:contentDescription="@string/background_dot"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:layout_marginBottom="750dp"
+        android:layout_marginStart="80dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/bg_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/bgDot5"
+        android:contentDescription="@string/background_dot"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:layout_marginBottom="320dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/bg_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/bgDot6"
+        android:contentDescription="@string/background_dot"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="85dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/bg_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/bgDot7"
+        android:contentDescription="@string/background_dot"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginTop="450dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/bg_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/bgDot8"
+        android:contentDescription="@string/background_dot"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:layout_marginBottom="50dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/bg_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/bgDot9"
+        android:contentDescription="@string/background_dot"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/bg_circle"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/bgDot10"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginBottom="185dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/background_dot"
+        android:src="@drawable/bg_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/MainTitle"
         android:layout_width="226dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="93dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="130dp"
         android:layout_marginEnd="93dp"
         android:gravity="center"
         android:text="@string/my_heart_rate"
         android:textColor="@color/app_name_color"
         android:textSize="32sp"
         android:textStyle="bold"
+        android:background="@color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +238,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="66dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="66dp"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -44,13 +253,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="66dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="275dp"
         android:layout_marginEnd="66dp"
         android:layout_marginBottom="15dp"
         android:text="@string/sampleHR"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20sp"
+        android:background="@color/transparent"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

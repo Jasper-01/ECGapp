@@ -27,7 +27,7 @@ class Bluetooth_pg : AppCompatActivity() {
         val pairedDevices: Set<BluetoothDevice>? = bluetoothAdapter?.bondedDevices
 
         val onOffButton = findViewById<Button>(R.id.OnOffButton)
-        var status = findViewById<TextView>(R.id.Bluetooth_status)
+        var status = findViewById<TextView>(R.id.BluetoothStatus)
         var onOffImage = findViewById<ImageView>(R.id.OnOff_Image)
         var deviceName = findViewById<TextView>(R.id.DeviceName)
         var deviceAddress = findViewById<TextView>(R.id.deviceAddress)
