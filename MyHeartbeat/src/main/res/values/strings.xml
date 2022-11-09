@@ -10,7 +10,7 @@
     <string name="bluetooth">Bluetooth</string>
     <string name="history">History</string>
     <string name="UserInfo">User Info</string>
-    <string name="UserInformation">User Information</string>
+    <string name="UserInformation">User\nInformation</string>
     <string name="credits">Credits</string>
 
     <string name="bluetooth_status">bluetooth_status</string>
@@ -25,6 +25,7 @@
     <string name="refresh_bluetooth_status">refresh bluetooth status</string>
     <string name="tap_to_refresh">tap to refresh</string>
 
+    <string name="displayHR">Heart rate display</string>
     <string name="save">save</string>
 
     <string name="Dolgormaa_name">Namkhainyambuu Dolgormaa (덜거르마)</string>
@@ -44,7 +45,6 @@
     <string name="sampleID">221027001</string>
     <string name="sampleDeviceName">Jasper\'s Phone</string>
     <string name="sampleMAC">90:2B:34:9E:0E:C0</string>
-    <string name="sampleHistory">2022, October 27 (Thu) 18:54:59 \n85 BPM \n\n2022, October 26 (Wed) 23:45:03 \n88 BPM</string>
     <string name="sampleTimeZone">GMT+9</string>
     <string name="background_dot">background dot</string>
     <string name="username">Name:</string>
@@ -53,4 +53,9 @@
     <string name="change">change</string>
     <string name="deviceMAC">Device MAC address:</string>
     <string name="deviceTimeZone">Device Time Zone:</string>
+
+    <string-array name="sampleHistory">
+        <item>2022, October 27 (Thu) 18:54:59\n85 BPM</item>
+        <item>2022, October 26 (Wed) 23:45:03\n88 BPM</item>
+    </string-array>
 </resources>

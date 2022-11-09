@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Credits_pg">
+
+    <TextView
+        android:id="@+id/MainTitle"
+        style="@style/subpg_mainTitle"
+        android:layout_marginTop="130dp"
+        android:text="@string/credits"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <TextView
+        android:id="@+id/Dolgormaa_name"
+        style="@style/credits_listing"
+        android:layout_marginTop="30dp"
+        android:text="@string/Dolgormaa_name"
+        app:layout_constraintTop_toBottomOf="@+id/MainTitle"
+        app:layout_constraintBottom_toTopOf="@+id/Dolgormaa_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <TextView
+        android:id="@+id/Dolgormaa_id"
+        style="@style/credits_listing"
+        android:layout_marginBottom="15dp"
+        android:text="@string/Dolgormaa_ID"
+        app:layout_constraintTop_toBottomOf="@+id/Dolgormaa_name"
+        app:layout_constraintBottom_toTopOf="@+id/Jasper_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <TextView
+        android:id="@+id/Jasper_name"
+        style="@style/credits_listing"
+        android:layout_marginTop="15dp"
+        android:text="@string/Jasper_name"
+        app:layout_constraintTop_toBottomOf="@+id/Dolgormaa_id"
+        app:layout_constraintBottom_toTopOf="@+id/Jasper_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <TextView
+        android:id="@+id/Jasper_id"
+        style="@style/credits_listing"
+        android:layout_marginBottom="15dp"
+        android:text="@string/Jasper_ID"
+        app:layout_constraintTop_toBottomOf="@+id/Jasper_name"
+        app:layout_constraintBottom_toTopOf="@+id/Phoebe_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <TextView
+        android:id="@+id/Phoebe_name"
+        style="@style/credits_listing"
+        android:layout_marginTop="15dp"
+        android:text="@string/Phoebe_name"
+        app:layout_constraintTop_toBottomOf="@+id/Jasper_id"
+        app:layout_constraintBottom_toTopOf="@+id/Phoebe_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <TextView
+        android:id="@+id/Phoebe_id"
+        style="@style/credits_listing"
+        android:layout_marginBottom="15dp"
+        android:text="@string/Phoebe_ID"
+        app:layout_constraintTop_toBottomOf="@+id/Phoebe_name"
+        app:layout_constraintBottom_toTopOf="@+id/Michael_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <TextView
+        android:id="@+id/Michael_name"
+        style="@style/credits_listing"
+        android:layout_marginTop="15dp"
+        android:text="@string/Michael_name"
+        app:layout_constraintTop_toBottomOf="@+id/Phoebe_id"
+        app:layout_constraintBottom_toTopOf="@+id/Michael_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <TextView
+        android:id="@+id/Michael_id"
+        style="@style/credits_listing"
+        android:layout_marginBottom="15dp"
+        android:text="@string/Michael_ID"
+        app:layout_constraintTop_toBottomOf="@+id/Michael_name"
+        app:layout_constraintBottom_toTopOf="@+id/Josean_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <TextView
+        android:id="@+id/Josean_name"
+        style="@style/credits_listing"
+        android:layout_marginTop="15dp"
+        android:text="@string/Josean_name"
+        app:layout_constraintTop_toBottomOf="@+id/Michael_id"
+        app:layout_constraintBottom_toTopOf="@+id/Josean_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <TextView
+        android:id="@+id/Josean_id"
+        style="@style/credits_listing"
+        android:text="@string/Josean_ID"
+        app:layout_constraintTop_toBottomOf="@+id/Josean_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

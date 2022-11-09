@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Main_pg">
+
+    <TextView
+        android:id="@+id/MainTitle"
+        style="@style/homepg_mainTitle"
+        android:layout_marginTop="130dp"
+        android:text="@string/app_name_here"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.025"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <TextView
+        android:id="@+id/subtitle"
+        style="@style/homepg_subTitle"
+        android:text="@string/for_a_healthier_heart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toBottomOf="@+id/MainTitle" />
+
+    <Button
+        android:id="@+id/HeartRate"
+        style="@style/homepg_button"
+        android:layout_marginTop="0dp"
+        android:text="@string/my_heart_rate"
+        app:layout_constraintTop_toBottomOf="@id/subtitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <Button
+        android:id="@+id/BT"
+        style="@style/homepg_button"
+        android:layout_marginTop="20dp"
+        android:text="@string/bluetooth"
+        app:layout_constraintTop_toBottomOf="@+id/HeartRate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <Button
+        android:id="@+id/History"
+        style="@style/homepg_button"
+        android:layout_marginTop="20dp"
+        android:text="@string/history"
+        app:layout_constraintTop_toBottomOf="@+id/BT"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <Button
+        android:id="@+id/UserInfo"
+        style="@style/homepg_button"
+        android:layout_marginTop="20dp"
+        android:text="@string/UserInfo"
+        app:layout_constraintTop_toBottomOf="@+id/History"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <Button
+        android:id="@+id/Credits"
+        style="@style/homepg_button"
+        android:layout_marginTop="20dp"
+        android:text="@string/credits"
+        app:layout_constraintTop_toBottomOf="@+id/UserInfo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

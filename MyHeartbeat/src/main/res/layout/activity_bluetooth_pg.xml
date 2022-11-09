@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Bluetooth_pg">
+
+    <TextView
+        android:id="@+id/MainTitle"
+        style="@style/subpg_mainTitle"
+        android:layout_marginTop="70dp"
+        android:text="@string/bluetooth"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <ImageView
+        android:id="@+id/OnOff_Image"
+        style="@style/bluetoothPg_images"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="0dp"
+        android:contentDescription="@string/turn_on_off"
+        app:srcCompat="@drawable/ic_bluetooth_disable"
+        app:layout_constraintTop_toBottomOf="@+id/MainTitle"
+        app:layout_constraintBottom_toTopOf="@+id/OnOffButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <Button
+        android:id="@+id/OnOffButton"
+        style="@style/bluetooth_onOff"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="25dp"
+        android:text="@string/turn_on_off"
+        app:layout_constraintTop_toBottomOf="@+id/OnOff_Image"
+        app:layout_constraintBottom_toTopOf="@+id/BluetoothStatus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <TextView
+        android:id="@+id/BluetoothStatus"
+        style="@style/bluetooth_detailsListing"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="25dp"
+        android:text="@string/bluetooth_status_off"
+        app:layout_constraintTop_toBottomOf="@+id/OnOffButton"
+        app:layout_constraintBottom_toTopOf="@+id/PairedDevice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <TextView
+        android:id="@+id/PairedDevice"
+        style="@style/bluetooth_detailsListing"
+        android:layout_marginTop="25dp"
+        android:text="@string/paired_device"
+        app:layout_constraintTop_toBottomOf="@+id/BluetoothStatus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <TextView
+        android:id="@+id/DeviceName"
+        style="@style/bluetooth_detailsListing"
+        android:layout_marginTop="10dp"
+        android:text="@string/device_unavailable"
+        app:layout_constraintTop_toBottomOf="@+id/PairedDevice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <TextView
+        android:id="@+id/refreshDescrip"
+        style="@style/bluetooth_detailsListing"
+        android:text="@string/tap_to_refresh"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/refreshButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <ImageButton
+        android:id="@+id/refreshButton"
+        style="@style/bluetoothPg_images"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/refresh_bluetooth_status"
+        app:srcCompat="@drawable/ic_refresh"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toBottomOf="@+id/DeviceName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <TextView
+        android:id="@+id/deviceAddress"
+        style="@style/bluetooth_detailsListing"
+        android:text=""
+        app:layout_constraintTop_toBottomOf="@+id/DeviceName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

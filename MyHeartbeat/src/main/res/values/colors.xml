@@ -8,7 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="darkGray">#3A3B3C</color>
+    <color name="ltGray">#545454</color>
 
+    <color name="mainPg_subtitle">#795548</color>
     <color name="transparent">#00000000</color>
     <color name="background">#FEDAAE</color>
     <color name="app_name_color">#5D6455</color>

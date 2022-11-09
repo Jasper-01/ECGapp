@@ -7,6 +7,7 @@ import android.bluetooth.BluetoothManager
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -21,16 +22,17 @@ class Bluetooth_pg : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bluetooth_pg)
+        Log.d("MyHeartBeat", "Bluetooth page create")
 
         val bluetoothManager: BluetoothManager = getSystemService(BluetoothManager::class.java)
         val bluetoothAdapter: BluetoothAdapter? = bluetoothManager.getAdapter()
         val pairedDevices: Set<BluetoothDevice>? = bluetoothAdapter?.bondedDevices
 
         val onOffButton = findViewById<Button>(R.id.OnOffButton)
-        var status = findViewById<TextView>(R.id.BluetoothStatus)
-        var onOffImage = findViewById<ImageView>(R.id.OnOff_Image)
-        var deviceName = findViewById<TextView>(R.id.DeviceName)
-        var deviceAddress = findViewById<TextView>(R.id.deviceAddress)
+        val status = findViewById<TextView>(R.id.BluetoothStatus)
+        val onOffImage = findViewById<ImageView>(R.id.OnOff_Image)
+        val deviceName = findViewById<TextView>(R.id.DeviceName)
+        val deviceAddress = findViewById<TextView>(R.id.deviceAddress)
         val refreshButton = findViewById<ImageButton>(R.id.refreshButton)
 
         when (bluetoothAdapter?.isEnabled) {

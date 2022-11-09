@@ -2,14 +2,21 @@ package com.example.app
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class Main_pg : AppCompatActivity() {
 
+    private var doubleBackToExitPressedOnce = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        Log.d("MyHeartBeat", "Homepage create")
 
         val heartRate = findViewById<Button>(R.id.HeartRate)
         val bluetooth = findViewById<Button>(R.id.BT)
@@ -41,5 +48,21 @@ class Main_pg : AppCompatActivity() {
             val Intent = Intent(this, Credits_pg::class.java)
             startActivity(Intent)
         }
+    }
+
+    override fun onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed()
+            Log.d("MyHeartBeat", "Homepage BACK twice -> exit")
+            finishAffinity()
+        }
+        else {
+            Log.d("MyHeartBeat", "Homepage BACK once")
+        }
+
+        this.doubleBackToExitPressedOnce = true
+        Toast.makeText(applicationContext, "Please click BACK again to exit", Toast.LENGTH_SHORT).show()
+
+        Handler(Looper.getMainLooper()).postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
     }
 }
