@@ -1,6 +1,6 @@
-Project of Basic Mobile Lab 2
-Hardware components: ECG board, arduino board
-Project goal: Make an app with hardware components
+Project of Basic Mobile Lab 2  
+Hardware components: ECG board, arduino board  
+Project goal: Make an app with hardware components  
 
 Specifications of project:
 - Shows heart rate that is measured by ECG board which transmits information to the app
