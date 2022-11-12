@@ -1,25 +1,35 @@
 package com.example.app
+
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.*
 
 class History_pg : AppCompatActivity() {
+
     private lateinit var recyclerView: RecyclerView
     private lateinit var userArrayList: ArrayList<user>
     private lateinit var adapter: adapter
     private lateinit var db: FirebaseFirestore
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.history_pg)
         Log.d("MyHeartBeat", "History page created")
+//        val historyList = findViewById<ListView>(R.id.HistoryDisplay)
+//        historyList.setBackgroundColor(Color.TRANSPARENT)
+        FirebaseApp.initializeApp(this)
         val sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE)
-        val email = sharedPreferences.getString("email", "0").toString()
+        val ID_value = sharedPreferences.getString("value", "0").toString()
+        val name = sharedPreferences.getString("name", "0").toString()
+        val date = sharedPreferences.getString("date_time", "0").toString()
+/*        val listItems = resources.getStringArray(R.array.sampleHistory)
+        val historyAdapter = ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, listItems)
+        historyList.adapter = historyAdapter*/
 
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(applicationContext)
@@ -28,13 +38,14 @@ class History_pg : AppCompatActivity() {
         userArrayList = arrayListOf()
         adapter = adapter(userArrayList)
         recyclerView.adapter = adapter
-        EventChangeListener(email)
+        EventChangeListener(name, ID_value, date)
+
     }
 
-    private fun EventChangeListener(email :String){
+    private fun EventChangeListener(name: String, ID_value: String, date: String){
 
         db = FirebaseFirestore.getInstance()
-        db.collection(email).
+        db.collection(name +"_" + ID_value).
         addSnapshotListener(object: EventListener<QuerySnapshot>{
             @SuppressLint("NotifyDataSetChanged")
             override fun onEvent(

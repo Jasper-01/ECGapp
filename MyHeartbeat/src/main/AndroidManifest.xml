@@ -29,10 +29,8 @@
         android:roundIcon="@mipmap/ic_logo_round"
         android:supportsRtl="true"
         android:theme="@style/SubPgTheme"
+        android:isGame="false"
         tools:targetApi="31">
-        <activity
-            android:name=".bluetoothDevices_pg"
-            android:exported="false" />
         <activity
             android:name=".Credits_pg"
             android:exported="false" />
