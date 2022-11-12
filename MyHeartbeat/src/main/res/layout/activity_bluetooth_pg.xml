@@ -87,7 +87,6 @@
         style="@style/bluetoothShowDevices"
         android:layout_marginTop="30dp"
         android:text="@string/showDevices"
-        android:onClick="showPopup"
         app:layout_constraintTop_toBottomOf="@+id/deviceAddress"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
