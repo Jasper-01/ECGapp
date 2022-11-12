@@ -1,5 +1,6 @@
 package com.example.app
 
+import android.R.attr.data
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
