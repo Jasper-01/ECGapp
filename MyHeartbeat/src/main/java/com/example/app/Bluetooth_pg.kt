@@ -68,10 +68,10 @@ class Bluetooth_pg : AppCompatActivity() {
                     else -> statusUnavailable()
                 }
 
-                bluetoothCheck.postDelayed(this, 3000)
+                bluetoothCheck.postDelayed(this, 1000)
             }
         }
-        bluetoothCheck.postDelayed(bluetoothCheckRun, 3000)
+        bluetoothCheck.postDelayed(bluetoothCheckRun, 1000)
 
         /* check bluetooth permissions*/
         if (askBTpermission == PackageManager.PERMISSION_GRANTED) {
