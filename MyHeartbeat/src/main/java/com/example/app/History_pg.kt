@@ -6,7 +6,6 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.*
 
 class History_pg : AppCompatActivity() {
@@ -16,13 +15,13 @@ class History_pg : AppCompatActivity() {
     private lateinit var adapter: adapter
     private lateinit var db: FirebaseFirestore
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.history_pg)
         Log.d("MyHeartBeat", "History page created")
 //        val historyList = findViewById<ListView>(R.id.HistoryDisplay)
 //        historyList.setBackgroundColor(Color.TRANSPARENT)
-        FirebaseApp.initializeApp(this)
         val sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE)
         val ID_value = sharedPreferences.getString("value", "0").toString()
         val name = sharedPreferences.getString("name", "0").toString()
