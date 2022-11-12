@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.app
 
 import android.Manifest
@@ -10,7 +12,10 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
-import android.widget.*
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -18,7 +23,6 @@ import androidx.core.content.ContextCompat
 
 class Bluetooth_pg : AppCompatActivity() {
     private lateinit var onOffButton : Button
-    private lateinit var refreshButton : ImageButton
     private lateinit var status : TextView
     private lateinit var onOffImage : ImageView
     private lateinit var bluetoothManager: BluetoothManager
@@ -37,12 +41,12 @@ class Bluetooth_pg : AppCompatActivity() {
         bluetoothAdapter = bluetoothManager.adapter
 
         /*layout xml details*/
-        refreshButton = findViewById(R.id.refreshButton)
         onOffButton = findViewById(R.id.OnOffButton)
         status = findViewById(R.id.BluetoothStatus)
         onOffImage = findViewById(R.id.OnOff_Image)
         val deviceName = findViewById<TextView>(R.id.DeviceName)
         val deviceAddress = findViewById<TextView>(R.id.deviceAddress)
+        val showDevices = findViewById<Button>(R.id.listDevices)
 
         /* only shows Toast text once */
         if(bluetoothAdapter == null){
@@ -109,9 +113,16 @@ class Bluetooth_pg : AppCompatActivity() {
             }
         }
 
-        refreshButton.setOnClickListener {
-            Log.d("MyHeartBeat", "Bluetooth page manual refresh")
-            this.recreate()
+        showDevices.setOnClickListener {
+            if (bluetoothAdapter.isEnabled) {
+
+            } else if (!bluetoothAdapter.isEnabled) {
+                Log.d("MyHeartBeat", "List Bluetooth devices failed : Bluetooth is disabled")
+                Toast.makeText(applicationContext, "Please enable Bluetooth first", Toast.LENGTH_SHORT).show()
+            } else {
+                Log.d("MyHeartBeat", "List Bluetooth devices failed : Bluetooth unavailable")
+                Toast.makeText(applicationContext, "Bluetooth is unavailable on this device", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -156,23 +167,34 @@ class Bluetooth_pg : AppCompatActivity() {
         Log.d("MyHeartBeat", "BLUETOOTH status on")
         status.setText(R.string.bluetooth_status_on)
         onOffImage.setImageResource(R.drawable.ic_bluetooth_on)
+        onOffButton.setText(R.string.turn_off)
     }
 
     private fun statusOff(){
         Log.d("MyHeartBeat", "BLUETOOTH status off")
         status.setText(R.string.bluetooth_status_off)
         onOffImage.setImageResource(R.drawable.ic_bluetooth_disable)
+        onOffButton.setText(R.string.turn_on)
     }
 
     private fun statusUnavailable(){
         Log.d("MyHeartBeat", "BLUETOOTH status unavailable")
         status.setText(R.string.bluetooth_not_supported)
         onOffImage.setImageResource(R.drawable.ic_bluetooth_disable)
+        onOffButton.setText(R.string.turn_on)
     }
 
-    fun statusConnected(){
+    private fun statusConnected(){
         Log.d("MyHeartBeat", "BLUETOOTH status connected")
         status.setText(R.string.bluetooth_status_connected)
         onOffImage.setImageResource(R.drawable.ic_bluetooth_connected)
+        onOffButton.setText(R.string.turn_off)
     }
+
+//    fun showPopup(v: View){
+//        val popup = PopupMenu(this, v)
+//        val inflater: MenuInflater = popup.menuInflater
+//        inflater.inflate(R.menu.actions, popup.menu)
+//        popup.show()
+//    }
 }
