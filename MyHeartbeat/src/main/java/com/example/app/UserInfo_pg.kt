@@ -14,19 +14,19 @@ class UserInfo_pg : AppCompatActivity() {
         setContentView(R.layout.user_info_pg)
         Log.d("MyHeartBeat", "UserInfo page create")
 
-        var chgButton = findViewById<Button>(R.id.changeName)
-        var nameDisplay = findViewById<EditText>(R.id.UserNameDisplay)
-        var underline = findViewById<View>(R.id.underlineName)
-        nameDisplay.setEnabled(false)
+        val chgButton = findViewById<Button>(R.id.changeName)
+        val nameDisplay = findViewById<EditText>(R.id.UserNameDisplay)
+        val underline = findViewById<View>(R.id.underlineName)
+        nameDisplay.isEnabled = false
 
         chgButton.setOnClickListener {
             if(!nameDisplay.isEnabled){  // not enable = cannot edit
-                nameDisplay.setEnabled(true)  // can edit text
+                nameDisplay.isEnabled = true  // can edit text
                 chgButton.setText(R.string.save)
                 underline.setBackgroundColor(Color.DKGRAY)
             }
             else{
-                nameDisplay.setEnabled(false)  // cannot edit text
+                nameDisplay.isEnabled = false  // cannot edit text
                 chgButton.setText(R.string.change)
                 underline.setBackgroundColor(Color.TRANSPARENT)
             }
