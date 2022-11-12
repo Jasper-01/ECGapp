@@ -19,7 +19,10 @@
     <string name="bluetooth_status_off">Bluetooth status: Off</string>
     <string name="bluetooth_status_connected">Bluetooth status: Connected</string>
     <string name="bluetooth_not_supported">Bluetooth status: Not supported</string>
-    <string name="turn_on_off">Turn On/Off</string>
+    <string name="turn_on">Turn On</string>
+    <string name="turn_off">Turn Off</string>
+    <string name="bluetoothImageDesc">Turn Bluetooth On/Off</string>
+    <string name="showDevices">Show Bluetooth Devices</string>
     <string name="paired_device">Paired Device:</string>
     <string name="device_unavailable">Unavailable</string>
     <string name="refresh_bluetooth_status">refresh bluetooth status</string>
