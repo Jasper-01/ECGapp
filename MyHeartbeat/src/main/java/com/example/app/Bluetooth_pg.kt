@@ -145,6 +145,7 @@ class Bluetooth_pg : AppCompatActivity() {
         }
     }
 
+    @Deprecated("Deprecated in Java")
     override fun startActivityForResult(intent: Intent?, requestCode: Int, options: Bundle?) {
         super.startActivityForResult(intent, requestCode, options)
         when(requestCode){ REQUEST_CODE_ENABLE_BT ->
