@@ -28,7 +28,7 @@ class History_pg : AppCompatActivity() {
         val date = sharedPreferences.getString("date_time", "0").toString()
 /*        val listItems = resources.getStringArray(R.array.sampleHistory)
         val historyAdapter = ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, listItems)
-        historyList.adapter = historyAdapter*/
+        historyList.adapter = historyAdapter */
 
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(applicationContext)
