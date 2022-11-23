@@ -61,11 +61,11 @@ class HeartRate_pg : AppCompatActivity(){
         val handler = Handler()
         val runnable = object : Runnable {
             override fun run() {
-                for (i in 0..50){
+                for (i in 0..100){
                     this@HeartRate_pg.runOnUiThread {
-                        x+=0.02
+                        x+=0.01
                         y+=0.005
-                        series.appendData(DataPoint(x, r.nextDouble()), true, 150)
+                        series.appendData(DataPoint(x, r.nextDouble()), true, 300)
 //                        series.appendData(DataPoint(x, y), true, 150)
                     }
                 }
