@@ -23,12 +23,27 @@ class Main_pg : AppCompatActivity() {
         Log.d("MyHeartBeat", "Homepage create")
         auth = FirebaseAuth.getInstance()
 
+        val email = intent.getStringExtra("email")
+        val display_name = intent.getStringExtra("full_name")
+        Log.d("DKMOBILE", display_name.toString())
+
+        val sharedPref = getSharedPreferences("myKey", MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.putString("email", email.toString())
+        editor.putString("full_name", display_name.toString())
+        editor.apply()
+
+        val sign_out = findViewById<Button>(R.id.sign_out)
         val heartRate = findViewById<Button>(R.id.HeartRate)
         val bluetooth = findViewById<Button>(R.id.BT)
         val friends = findViewById<Button>(R.id.History)
         val settings = findViewById<Button>(R.id.UserInfo)
         val credits = findViewById<Button>(R.id.Credits)
 
+        sign_out.setOnClickListener {
+            auth.signOut()
+            startActivity(Intent(this, login_google_pg::class.java))
+        }
         heartRate.setOnClickListener {
             val Intent = Intent(this, HeartRate_pg::class.java)
             startActivity(Intent)
