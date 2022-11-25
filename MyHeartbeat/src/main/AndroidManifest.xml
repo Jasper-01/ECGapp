@@ -45,8 +45,7 @@
             android:exported="false" />
         <activity
             android:name=".History_pg"
-            android:exported="false"
-            />
+            android:exported="false" />
         <activity
             android:name=".UserInfo_pg"
             android:exported="false" />
@@ -55,8 +54,11 @@
             android:exported="false" />
         <activity
             android:name=".Main_pg"
-            android:exported="true"
-            android:theme="@style/MainPgTheme">
+            android:exported="false"
+            android:theme="@style/MainPgTheme"/>
+        <activity
+            android:name=".login_google_pg"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
