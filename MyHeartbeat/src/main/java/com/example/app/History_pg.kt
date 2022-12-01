@@ -27,6 +27,7 @@ class History_pg : AppCompatActivity() {
         val ID_value = sharedPreferences.getString("value", "0").toString()
         val name = sharedPreferences.getString("name", "0").toString()
         val date = sharedPreferences.getString("date_time", "0").toString()
+        val email = sharedPreferences.getString("email", "0").toString()
 /*        val listItems = resources.getStringArray(R.array.sampleHistory)
         val historyAdapter = ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, listItems)
         historyList.adapter = historyAdapter*/
@@ -38,14 +39,14 @@ class History_pg : AppCompatActivity() {
         userArrayList = arrayListOf()
         adapter = adapter(userArrayList)
         recyclerView.adapter = adapter
-        EventChangeListener(name, ID_value, date)
+        EventChangeListener(name, ID_value, date, email)
 
     }
 
-    private fun EventChangeListener(name: String, ID_value: String, date: String){
+    private fun EventChangeListener(name: String, ID_value: String, date: String, email :String){
 
         db = FirebaseFirestore.getInstance()
-        db.collection(name +"_" + ID_value).
+        db.collection(email).
         addSnapshotListener(object: EventListener<QuerySnapshot>{
             @SuppressLint("NotifyDataSetChanged")
             override fun onEvent(
