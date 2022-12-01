@@ -2,6 +2,11 @@
 
 package com.example.app
 
+import android.app.ProgressDialog
+import android.bluetooth.BluetoothAdapter
+import android.bluetooth.BluetoothDevice
+import android.bluetooth.BluetoothManager
+import android.bluetooth.BluetoothSocket
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.os.Handler
@@ -18,25 +23,40 @@ import com.jjoe64.graphview.GraphView
 import com.jjoe64.graphview.Viewport
 import com.jjoe64.graphview.series.DataPoint
 import com.jjoe64.graphview.series.LineGraphSeries
+import java.util.*
+import java.util.UUID.fromString
 
 
 class HeartRate_pg : AppCompatActivity(){
+
+    companion object {
+        var UUID: UUID = fromString("00001101-0000-1000-8000-00805F9B34FB")
+        var bluetoothSocket: BluetoothSocket? = null
+        lateinit var progress: ProgressDialog
+        lateinit var bluetoothManager: BluetoothManager
+        lateinit var bluetoothAdapter: BluetoothAdapter
+        lateinit var bluetoothDevice: BluetoothDevice
+        var connectedDeviceAdd = ""
+        var isConnected: Boolean = false
+    }
+
     private lateinit var series: LineGraphSeries<DataPoint>
     private lateinit var graph: GraphView
     private lateinit var viewport: Viewport
 
-    var r = java.util.Random()
-
     var x = 0.0
-    var y = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_heart_rate_pg)
         Log.d("MyHeartBeat", "HeartRate page created")
 
+        bluetoothManager = getSystemService(BluetoothManager::class.java)
+        bluetoothAdapter = bluetoothManager.adapter
+
         val textClock = findViewById<TextClock>(R.id.Time)
         val savebtn = findViewById<Button>(R.id.button)
+        val bpm = findViewById<TextView>(R.id.HeartRateStats)
 
         textClock.format12Hour = null
         textClock.format24Hour = "yyyy, LLLL dd (E) HH:mm:ss"
@@ -61,12 +81,15 @@ class HeartRate_pg : AppCompatActivity(){
         val handler = Handler()
         val runnable = object : Runnable {
             override fun run() {
+                bpm.text = "--BPM"
                 for (i in 0..100){
                     this@HeartRate_pg.runOnUiThread {
-                        x+=0.01
-                        y+=0.005
-                        series.appendData(DataPoint(x, r.nextDouble()), true, 300)
-//                        series.appendData(DataPoint(x, y), true, 150)
+                        if(bluetoothAdapter.isEnabled){
+                            x+=0.01
+                            series.appendData(DataPoint(x, 0.1), true, 300)
+                        } else{
+                            series.appendData(DataPoint(x, 0.0), true, 300)
+                        }
                     }
                 }
                 graph.addSeries(series)
