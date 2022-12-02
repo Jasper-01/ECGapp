@@ -48,11 +48,8 @@
             android:exported="false" />
         <activity
             android:name=".Main_pg"
-            android:exported="false"
-            android:theme="@style/MainPgTheme"/>
-        <activity
-            android:name=".login_google_pg"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/MainPgTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

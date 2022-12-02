@@ -29,18 +29,18 @@
                 android:background="@color/white"
                 android:text="Name: "
                 android:textColor="@color/black"
-                android:textSize="26sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvname"
                 android:layout_width="255dp"
                 android:layout_height="36dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="30dp"
                 android:background="@color/white"
                 android:text="Jasper"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -52,12 +52,12 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="124dp"
+                android:layout_width="103dp"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:text="Date and Time: "
                 android:textColor="@color/black"
-                android:textSize="26sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -68,7 +68,7 @@
                 android:background="@color/white"
                 android:text="2022, November 11 (Fri) 21:15:40"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -85,18 +85,18 @@
                 android:background="@color/white"
                 android:text="BPM: "
                 android:textColor="@color/black"
-                android:textSize="26sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvbpm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="50dp"
                 android:background="@color/white"
                 android:text="87"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
         </LinearLayout>
 
