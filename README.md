@@ -1,3 +1,5 @@
+Dankook University (Jukjeon Campus), Republic of Korea : Mobile Systems Engineering
+
 Project of Basic Mobile Lab 2  
 Hardware components: ECG board, arduino board  
 Project goal: Make an app with hardware components  
