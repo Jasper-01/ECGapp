@@ -14,21 +14,21 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.jjoe64.graphview.GraphView
+/*import com.jjoe64.graphview.GraphView
 import com.jjoe64.graphview.Viewport
 import com.jjoe64.graphview.series.DataPoint
-import com.jjoe64.graphview.series.LineGraphSeries
+import com.jjoe64.graphview.series.LineGraphSeries*/
 
 
 class HeartRate_pg : AppCompatActivity(){
-    private lateinit var series: LineGraphSeries<DataPoint>
+    /*private lateinit var series: LineGraphSeries<DataPoint>
     private lateinit var graph: GraphView
     private lateinit var viewport: Viewport
 
     var r = java.util.Random()
 
     var x = 0.0
-    var y = 0.0
+    var y = 0.0*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,12 +39,12 @@ class HeartRate_pg : AppCompatActivity(){
         val savebtn = findViewById<Button>(R.id.button)
 
         textClock.format12Hour = null
-        textClock.format24Hour = "yyyy, LLLL dd (E) HH:mm:ss"
+        textClock.format24Hour = "yyyy-LL-dd (E) HH:mm:ss"
 
         val sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
-        graph = findViewById<View>(R.id.heartRateGraph) as GraphView
+        /*graph = findViewById<View>(R.id.heartRateGraph) as GraphView
         series = LineGraphSeries()
         viewport = graph.viewport
 
@@ -74,22 +74,20 @@ class HeartRate_pg : AppCompatActivity(){
             }
         }
         handler.postDelayed(runnable, 1000)
-
+*/
         savebtn.setOnClickListener{
             val bpm  = findViewById<TextView>(R.id.HeartRateStats).text.toString()
-            val ID_value = sharedPreferences.getString("value", "0").toString()
-            val name = sharedPreferences.getString("name", "0").toString()
             val email = sharedPreferences.getString("email", "0").toString()
             val full_name = sharedPreferences.getString("full_name", "0").toString()
             val text_clc = textClock.text.toString()
             editor.putString("date_time", textClock.text.toString())
             editor.apply()
 
-            saveFireStore(bpm, text_clc, ID_value, name, email, full_name)
+            saveFireStore(bpm, text_clc, email, full_name)
         }
     }
 
-    private fun saveFireStore(bpm: String, text_clc: String, ID_value: String, name: String, email:String, full_name : String){
+    private fun saveFireStore(bpm: String, text_clc: String, email:String, full_name : String){
         val db = Firebase.firestore
         val user = hashMapOf(
             "bpm" to bpm,
@@ -97,15 +95,20 @@ class HeartRate_pg : AppCompatActivity(){
             "name" to full_name
         )
 
-        db.collection(email)
-            .add(user)
-            .addOnSuccessListener {
-                Log.d(TAG, "Document Added")
-                Toast.makeText(applicationContext, "Successfully saved", Toast.LENGTH_SHORT).show()
-            }
-            .addOnFailureListener {
-                Log.w(TAG, "Error adding document")
-                Toast.makeText(applicationContext, "Error saving", Toast.LENGTH_SHORT).show()
-            }
+        if(email == "0"){
+            Toast.makeText(applicationContext, "Need G-MAIL SIGNUP to save", Toast.LENGTH_SHORT).show()
+        }
+        else{
+            db.collection(email)
+                .add(user)
+                .addOnSuccessListener {
+                    Log.d(TAG, "Document Added")
+                    Toast.makeText(applicationContext, "Successfully saved", Toast.LENGTH_SHORT).show()
+                }
+                .addOnFailureListener {
+                    Log.w(TAG, "Error adding document")
+                    Toast.makeText(applicationContext, "Error saving", Toast.LENGTH_SHORT).show()
+                }
+        }
     }
 }
