@@ -8,6 +8,7 @@
     android:layout_margin="16dp"
     android:theme="@android:style/Theme.Light">
 
+
     <LinearLayout
         android:layout_width="352dp"
         android:layout_height="149dp"
@@ -15,6 +16,8 @@
         android:layout_marginStart="16dp"
         android:background="@color/white"
         android:orientation="vertical">
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,7 +33,7 @@
                 android:text="Name: "
                 android:textColor="@color/black"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:fontFamily="@font/fredoka_one"/>
 
             <TextView
                 android:id="@+id/tvname"
@@ -40,7 +43,7 @@
                 android:background="@color/white"
                 android:text="Jasper"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -57,8 +60,8 @@
                 android:background="@color/white"
                 android:text="Date and Time: "
                 android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textSize="22sp"
+                android:fontFamily="@font/fredoka_one"/>
 
             <TextView
                 android:id="@+id/tvdate_time"
@@ -68,7 +71,7 @@
                 android:background="@color/white"
                 android:text="2022, November 11 (Fri) 21:15:40"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -86,7 +89,7 @@
                 android:text="BPM: "
                 android:textColor="@color/black"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:fontFamily="@font/fredoka_one"/>
 
             <TextView
                 android:id="@+id/tvbpm"
@@ -96,7 +99,7 @@
                 android:background="@color/white"
                 android:text="87"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
 
         </LinearLayout>
 

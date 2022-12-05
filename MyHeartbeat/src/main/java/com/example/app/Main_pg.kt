@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 
+
 class Main_pg : AppCompatActivity() {
 
     private var doubleBackToExitPressedOnce = false
@@ -19,9 +20,22 @@ class Main_pg : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
         Log.d("MyHeartBeat", "Homepage create")
         auth = FirebaseAuth.getInstance()
+
+        val themeChanger = findViewById<Button>(R.id.themeChanger)
+        var i=1
+        themeChanger.setOnClickListener {
+            i++
+            i=i%3
+            when(i){
+                1 -> context.setTheme(R.style.WhiteTheme)
+                2 -> context.setTheme(R.style.BlueTheme)
+                else-> this.setTheme(R.style.MainPgTheme)
+            }
+        }
 
         val heartRate = findViewById<Button>(R.id.HeartRate)
         val bluetooth = findViewById<Button>(R.id.BT)
@@ -53,6 +67,7 @@ class Main_pg : AppCompatActivity() {
             val Intent = Intent(this, Credits_pg::class.java)
             startActivity(Intent)
         }
+
     }
 
     override fun onBackPressed() {

@@ -11,12 +11,13 @@
         style="@style/homepg_mainTitle"
         android:layout_marginTop="130dp"
         android:text="@string/app_name_here"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.025"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.025" />
 
     <TextView
         android:id="@+id/subtitle"
@@ -30,12 +31,11 @@
     <Button
         android:id="@+id/HeartRate"
         style="@style/homepg_button"
-        android:layout_marginTop="0dp"
         android:text="@string/my_heart_rate"
-        app:layout_constraintTop_toBottomOf="@id/subtitle"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"/>
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/subtitle" />
 
     <Button
         android:id="@+id/BT"
@@ -76,6 +76,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/themeChanger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="3dp"
+        android:clickable="true"
+        app:backgroundTint="@color/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/theme_change" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

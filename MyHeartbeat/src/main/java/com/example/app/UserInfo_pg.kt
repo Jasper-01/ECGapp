@@ -37,6 +37,11 @@ class UserInfo_pg :AppCompatActivity() {
             .requestEmail()
             .build()
 
+        val backbtn = findViewById<Button>(R.id.backbtn)
+        backbtn.setOnClickListener {
+            finish()
+        }
+
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         val sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE)

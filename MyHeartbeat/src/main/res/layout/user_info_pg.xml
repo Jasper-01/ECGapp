@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".UserInfo_pg">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/backbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:backgroundTint="@color/background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backbtn" />
+
     <TextView
         android:id="@+id/userNameDisplay"
         style="@style/userInfo_detailsListing"
@@ -86,6 +96,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/fredoka_one"
         app:layout_constraintVertical_bias="0.827" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
