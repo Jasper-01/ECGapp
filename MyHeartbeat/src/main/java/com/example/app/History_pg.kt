@@ -1,13 +1,16 @@
 package com.example.app
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.*
 
-class History_pg : AppCompatActivity() {
+class History_pg : ThemeChange() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var userArrayList: ArrayList<user>
     private lateinit var adapter: adapter
@@ -16,10 +19,18 @@ class History_pg : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme()
         setContentView(R.layout.history_pg)
         Log.d("MyHeartBeat", "History page created")
         val sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE)
         val email = sharedPreferences.getString("email", "0").toString()
+
+        val backBtn: View = findViewById<Button>(R.id.backbtn)
+        backBtn.setOnClickListener {
+            val intent = Intent(this, Main_pg::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(applicationContext)

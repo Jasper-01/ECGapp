@@ -9,6 +9,7 @@ import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothManager
 import android.bluetooth.BluetoothSocket
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -32,7 +33,7 @@ import java.io.IOException
 import java.io.InputStream
 import java.util.*
 
-class HeartRate_pg : AppCompatActivity() {
+class HeartRate_pg : ThemeChange() {
 
     val doubleSize = Double.SIZE_BYTES
 
@@ -54,6 +55,7 @@ class HeartRate_pg : AppCompatActivity() {
     var x = 0.0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme()
         setContentView(R.layout.activity_heart_rate_pg)
         Log.d("MyHeartBeat", "HeartRate page created")
 

@@ -14,13 +14,17 @@ import android.os.Bundle
 import android.os.Handler
 import android.provider.Settings
 import android.util.Log
-import android.widget.*
+import android.view.View
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
-class Bluetooth_pg : AppCompatActivity() {
+class Bluetooth_pg : ThemeChange() {
     private lateinit var onOffButton: Button
     private lateinit var status: TextView
     private lateinit var onOffImage: ImageView
@@ -36,6 +40,7 @@ class Bluetooth_pg : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme()
         setContentView(R.layout.activity_bluetooth_pg)
         Log.d("MyHeartBeat", "Bluetooth page create")
 

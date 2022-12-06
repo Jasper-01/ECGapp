@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
@@ -23,10 +24,11 @@ private lateinit var auth: FirebaseAuth
 @SuppressLint("StaticFieldLeak")
 private lateinit var  googleSignInClient: GoogleSignInClient
 
-class UserInfo_pg :AppCompatActivity() {
+class UserInfo_pg : ThemeChange() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
+        setTheme()
         setContentView(R.layout.user_info_pg)
         auth = FirebaseAuth.getInstance()
         val google_sign = findViewById<Button>(R.id.google_signin)
@@ -49,6 +51,13 @@ class UserInfo_pg :AppCompatActivity() {
         }
         else{
             changes_F(full_name, email)
+        }
+
+        val backBtn: View = findViewById<Button>(R.id.backbtn)
+        backBtn.setOnClickListener {
+            val intent = Intent(this, Main_pg::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 

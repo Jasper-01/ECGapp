@@ -3,6 +3,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@color/transparent</item>
+        <item name="android:fontFamily">@font/fredoka_one</item>
         <item name="android:gravity">center</item>
         <item name="android:shadowColor">@color/app_name_color</item>
         <item name="android:shadowDx">0</item>
@@ -10,7 +11,6 @@
         <item name="android:shadowRadius">20</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">38sp</item>
-        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="homepg_subTitle">
@@ -18,12 +18,12 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:autofillHints"> </item>
         <item name="android:background">@color/transparent</item>
+        <item name="android:fontFamily">@font/fredoka_one</item>
         <item name="android:ems">10</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:minHeight">48dp</item>
         <item name="android:textColor">@color/mainPg_subtitle</item>
         <item name="android:textSize">16sp</item>
-        <item name="android:textStyle">italic</item>
         <item name="android:textAlignment">center</item>
     </style>
 
@@ -31,21 +31,21 @@
         <item name="android:layout_width">160dp</item>
         <item name="android:layout_height">45dp</item>
         <item name="android:background">@color/white</item>
+        <item name="android:fontFamily">@font/fredoka_one</item>
         <item name="android:gravity">center</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">16sp</item>
         <item name="textAllCaps">true</item>
-        <item name="android:textStyle">bold</item>
     </style>
-    
+
     <style name="subpg_mainTitle" parent="android:Widget.TextView">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/app_name_color</item>
         <item name="android:textSize">32sp</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/fredoka_one</item>
         <item name="android:background">@color/transparent</item>
     </style>
 
@@ -64,7 +64,7 @@
         <item name="android:description">@string/displayHR</item>
         <item name="android:background">@color/transparent</item>
     </style>
-    
+
     <style name="heartRate" parent="android:Widget.TextView">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -72,6 +72,7 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">20sp</item>
         <item name="android:background">@color/transparent</item>
+        <item name="android:fontFamily">@font/fredoka_one</item>
     </style>
 
     <style name="heartRateDisplay">
@@ -84,6 +85,7 @@
         <item name="android:layout_width">100dp</item>
         <item name="android:layout_height">48dp</item>
         <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/fredoka_one</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:background">@drawable/button</item>
         <item name="textAllCaps">true</item>
@@ -102,6 +104,7 @@
         <item name="android:background">@drawable/button</item>
         <item name="android:textColor">@color/white</item>
         <item name="textAllCaps">true</item>
+        <item name="android:fontFamily">@font/fredoka_one</item>
     </style>
 
     <style name="bluetooth_detailsListing" parent="android:Widget.TextView">
@@ -111,6 +114,7 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">18sp</item>
         <item name="android:background">@color/transparent</item>
+        <item name="android:fontFamily">@font/fredoka_one</item>
     </style>
 
     <style name="bluetoothShowDevices" parent="android:Widget.Button">
@@ -119,6 +123,7 @@
         <item name="android:background">@drawable/button</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/fredoka_one</item>
     </style>
 
     <style name="userInfo_details" parent="android:Widget.TextView">
@@ -128,6 +133,7 @@
         <item name="android:textColor">@color/darkGray</item>
         <item name="android:background">@color/transparent</item>
         <item name="android:textAlignment">center</item>
+        <item name="android:fontFamily">@font/fredoka_one</item>
     </style>
 
     <style name="userInfo_detailsListing">
@@ -136,8 +142,9 @@
         <item name="android:background">@color/transparent</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/fredoka_one</item>
     </style>
-    
+
     <style name="credits_listing" parent="android:Widget.TextView">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -150,6 +157,7 @@
         <item name="android:shadowDx">0</item>
         <item name="android:shadowDy">0</item>
         <item name="android:shadowRadius">1</item>
+        <item name="android:fontFamily">@font/fredoka_one</item>
     </style>
 
     <style name="HistoryList" parent="android:Widget.ListView">
@@ -161,5 +169,6 @@
         <item name="android:textSize">20sp</item>
         <item name="android:gravity">center</item>
         <item name="android:fastScrollAlwaysVisible">true</item>
+        <item name="android:fontFamily">@font/fredoka_one</item>
     </style>
 </resources>
