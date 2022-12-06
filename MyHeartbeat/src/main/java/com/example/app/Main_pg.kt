@@ -35,10 +35,11 @@ class Main_pg : AppCompatActivity() {
             finishAffinity()
         }
 
-//        val TChanger: View = findViewById<Button>(R.id.themeChanger)
-//        TChanger.setOnClickListener {
-//            /*action to change the theme*/
-//        }
+        val TChanger: View = findViewById<Button>(R.id.themeChanger)
+        TChanger.setOnClickListener {
+//            this.setTheme(R.style.MainPgTheme)
+//            applicationContext.setTheme(R.style.MainPgTheme)
+        }
 
         heartRate.setOnClickListener {
             val Intent = Intent(this, HeartRate_pg::class.java)
