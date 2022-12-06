@@ -33,16 +33,6 @@ import java.io.IOException
 import java.io.InputStream
 import java.util.*
 
-class HeartRate_pg : AppCompatActivity(){
-    /*private lateinit var series: LineGraphSeries<DataPoint>
-    private lateinit var graph: GraphView
-    private lateinit var viewport: Viewport
-
-    var r = java.util.Random()
-
-    var x = 0.0
-    var y = 0.0*/
-
 class HeartRate_pg : AppCompatActivity() {
 
     val doubleSize = Double.SIZE_BYTES
@@ -95,7 +85,7 @@ class HeartRate_pg : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
-        /*graph = findViewById<View>(R.id.heartRateGraph) as GraphView
+        graph = findViewById<View>(R.id.heartRateGraph) as GraphView
         series = LineGraphSeries()
         viewport = graph.viewport
 
