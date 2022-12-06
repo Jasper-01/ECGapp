@@ -15,11 +15,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.auth.SignInMethodQueryResult
 
 private lateinit var auth: FirebaseAuth
 @SuppressLint("StaticFieldLeak")
@@ -82,13 +80,14 @@ class UserInfo_pg :AppCompatActivity() {
         }
     }
 
+    // This function will display the full name, email, and user's device name
     private fun updateUI(account: GoogleSignInAccount) {
         val credential = GoogleAuthProvider.getCredential(account.idToken, null)
         Log.d("DKMOBILE", "UPDATEUI PASSED")
         auth.signInWithCredential(credential).addOnCompleteListener {
             if(it.isSuccessful){
                 changes_F(account.displayName.toString(), account.email.toString())
-                sending_tomain(account)
+                sending(account)
                 val intent = Intent(this, Main_pg::class.java)
                 startActivity(intent)
             }
@@ -110,7 +109,7 @@ class UserInfo_pg :AppCompatActivity() {
         layout?.removeView(google_signin)
     }
 
-    private fun sending_tomain(account: GoogleSignInAccount){
+    private fun sending(account: GoogleSignInAccount){
         val sharedPref = getSharedPreferences("myKey", MODE_PRIVATE)
         val editor = sharedPref.edit()
         editor.putString("email", account.email.toString())
