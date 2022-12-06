@@ -35,6 +35,8 @@ private lateinit var auth: FirebaseAuth
 
 class HeartRate_pg : AppCompatActivity() {
 
+    val doubleSize = Double.SIZE_BYTES
+
     private lateinit var bluetoothManager: BluetoothManager
     private lateinit var bluetoothAdapter: BluetoothAdapter
     private lateinit var bluetoothThing : BluetoothDevice
@@ -97,6 +99,7 @@ class HeartRate_pg : AppCompatActivity() {
         viewport.setMaxX(3.0)
         viewport.setMinY(0.0)
         viewport.setMaxY(1.0)
+//        viewport.setMaxY(10.0)
         viewport.isScrollable = true
         graph.gridLabelRenderer.isHorizontalLabelsVisible = false
         graph.gridLabelRenderer.isVerticalLabelsVisible = false
@@ -199,7 +202,7 @@ class HeartRate_pg : AppCompatActivity() {
                 val runnable = object : Runnable {
                     override fun run() {
                         var inputStream: InputStream?
-                        var b : Byte
+                        var byteBuffer : ByteArray = byteArrayOf()
 
                         bpm.text = "--BPM"
                         try{
@@ -208,16 +211,13 @@ class HeartRate_pg : AppCompatActivity() {
 
                             for (i in 0..100) {
                                 this@HeartRate_pg.runOnUiThread {
-                                    b = inputStream.read().toByte()
-                                    y = b.toDouble()
+//                                    for(j in 0..doubleSize) {
+//                                        byteBuffer[j] = inputStream.read().toByte()
+//                                    }
+//                                    y = byteBuffer.toString().toDouble()
+                                    y = 0.1
                                     x += 0.01
-                                    if (bluetoothAdapter.isEnabled) {
-//                                        y = inputStream.read().toDouble()
-                                        series.appendData(DataPoint(x, y), true, 300)
-                                        println(y)
-                                    } else {
-                                        series.appendData(DataPoint(x, 0.0), true, 300)
-                                    }
+                                    series.appendData(DataPoint(x, y), true, 300)
                                 }
                             }
                         } catch (e : IOException){
