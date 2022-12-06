@@ -12,6 +12,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -34,6 +35,13 @@ class Bluetooth_pg : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bluetooth_pg)
         Log.d("MyHeartBeat", "Bluetooth page create")
+
+        val backBtn: View = findViewById<Button>(R.id.backbtn)
+        backBtn.setOnClickListener {
+            val intent = Intent(this, Main_pg::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         /*Bluetooth Adapter and Manager declaration */
         val askBTpermission = ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH)

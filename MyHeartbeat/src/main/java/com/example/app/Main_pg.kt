@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -28,6 +29,16 @@ class Main_pg : AppCompatActivity() {
         val friends = findViewById<Button>(R.id.History)
         val settings = findViewById<Button>(R.id.UserInfo)
         val credits = findViewById<Button>(R.id.Credits)
+
+        val backBtn:View = findViewById<Button>(R.id.backbtn)
+        backBtn.setOnClickListener {
+            finishAffinity()
+        }
+
+//        val TChanger: View = findViewById<Button>(R.id.themeChanger)
+//        TChanger.setOnClickListener {
+//            /*action to change the theme*/
+//        }
 
         heartRate.setOnClickListener {
             val Intent = Intent(this, HeartRate_pg::class.java)

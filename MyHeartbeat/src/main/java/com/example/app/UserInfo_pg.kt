@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
@@ -51,6 +52,13 @@ class UserInfo_pg :AppCompatActivity() {
         }
         else{
             changes_F(full_name, email)
+        }
+
+        val backBtn: View = findViewById<Button>(R.id.backbtn)
+        backBtn.setOnClickListener {
+            val intent = Intent(this, Main_pg::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
