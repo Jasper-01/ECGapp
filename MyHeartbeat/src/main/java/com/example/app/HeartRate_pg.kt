@@ -22,7 +22,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.jjoe64.graphview.GraphView
@@ -32,16 +31,6 @@ import com.jjoe64.graphview.series.LineGraphSeries
 import java.io.IOException
 import java.io.InputStream
 import java.util.*
-
-class HeartRate_pg : AppCompatActivity(){
-    /*private lateinit var series: LineGraphSeries<DataPoint>
-    private lateinit var graph: GraphView
-    private lateinit var viewport: Viewport
-
-    var r = java.util.Random()
-
-    var x = 0.0
-    var y = 0.0*/
 
 class HeartRate_pg : AppCompatActivity() {
 
@@ -95,7 +84,7 @@ class HeartRate_pg : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
-        /*graph = findViewById<View>(R.id.heartRateGraph) as GraphView
+        graph = findViewById<View>(R.id.heartRateGraph) as GraphView
         series = LineGraphSeries()
         viewport = graph.viewport
 
@@ -140,19 +129,13 @@ class HeartRate_pg : AppCompatActivity() {
         super.onDestroy()
     }
 
-    private fun saveFireStore(bpm: String, text_clc: String, email:String, full_name : String) {
-
-        auth = FirebaseAuth.getInstance()
-        auth.fetchSignInMethodsForEmail(email)
-
-        if(auth.getCurrentUser() != null){
-
-            val db = Firebase.firestore
-            val user = hashMapOf(
-                "bpm" to bpm,
-                "datetime" to text_clc,
-                "name" to full_name
-            )
+    private fun saveFireStore(bpm: String, text_clc: String, email:String, full_name : String){
+        val db = Firebase.firestore
+        val user = hashMapOf(
+            "bpm" to bpm,
+            "datetime" to text_clc,
+            "name" to full_name
+        )
 
         if(email == "0"){
             Toast.makeText(applicationContext, "Need G-MAIL SIGNUP to save", Toast.LENGTH_SHORT).show()
@@ -168,9 +151,6 @@ class HeartRate_pg : AppCompatActivity() {
                     Log.w(TAG, "Error adding document")
                     Toast.makeText(applicationContext, "Error saving", Toast.LENGTH_SHORT).show()
                 }
-        }
-        else{
-            Toast.makeText(applicationContext, "Please Sign Up for Saving", Toast.LENGTH_SHORT).show()
         }
     }
 
