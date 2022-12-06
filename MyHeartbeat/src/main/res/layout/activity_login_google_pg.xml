@@ -5,6 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/backbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        app:backgroundTint="@color/background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backbtn" />
 
     <Button
         android:id="@+id/google_signin"
