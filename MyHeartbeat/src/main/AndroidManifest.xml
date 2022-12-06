@@ -33,22 +33,28 @@
         tools:targetApi="31">
         <activity
             android:name=".Credits_pg"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Bluetooth_pg"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".History_pg"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".UserInfo_pg"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".HeartRate_pg"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Main_pg"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/MainPgTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
