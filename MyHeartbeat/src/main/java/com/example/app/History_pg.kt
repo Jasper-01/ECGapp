@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.*
 
 class History_pg : AppCompatActivity() {
+
     private lateinit var recyclerView: RecyclerView
     private lateinit var userArrayList: ArrayList<user>
     private lateinit var adapter: adapter
@@ -18,6 +19,8 @@ class History_pg : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.history_pg)
         Log.d("MyHeartBeat", "History page created")
+
+        // Getting "email" variable needed
         val sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE)
         val email = sharedPreferences.getString("email", "0").toString()
 
@@ -29,8 +32,10 @@ class History_pg : AppCompatActivity() {
         adapter = adapter(userArrayList)
         recyclerView.adapter = adapter
         EventChangeListener(email)
+
     }
 
+    // Displaying Card view in Scroll View as Histories of User's use
     private fun EventChangeListener(email :String){
 
         db = FirebaseFirestore.getInstance()
