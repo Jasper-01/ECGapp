@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.app
 
 import android.Manifest
@@ -31,7 +33,15 @@ import java.io.IOException
 import java.io.InputStream
 import java.util.*
 
-private lateinit var auth: FirebaseAuth
+class HeartRate_pg : AppCompatActivity(){
+    /*private lateinit var series: LineGraphSeries<DataPoint>
+    private lateinit var graph: GraphView
+    private lateinit var viewport: Viewport
+
+    var r = java.util.Random()
+
+    var x = 0.0
+    var y = 0.0*/
 
 class HeartRate_pg : AppCompatActivity() {
 
@@ -53,7 +63,6 @@ class HeartRate_pg : AppCompatActivity() {
     private lateinit var bpm : TextView
 
     var x = 0.0
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_heart_rate_pg)
@@ -86,8 +95,9 @@ class HeartRate_pg : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
-        textClock.format12Hour = null
-        textClock.format24Hour = "yyyy - LL - dd (E) HH:mm:ss"
+        /*graph = findViewById<View>(R.id.heartRateGraph) as GraphView
+        series = LineGraphSeries()
+        viewport = graph.viewport
 
         graph = findViewById<View>(R.id.heartRateGraph) as GraphView
         series = LineGraphSeries()
@@ -100,6 +110,7 @@ class HeartRate_pg : AppCompatActivity() {
         viewport.setMinY(0.0)
         viewport.setMaxY(1.0)
 //        viewport.setMaxY(10.0)
+
         viewport.isScrollable = true
         graph.gridLabelRenderer.isHorizontalLabelsVisible = false
         graph.gridLabelRenderer.isVerticalLabelsVisible = false
@@ -113,6 +124,7 @@ class HeartRate_pg : AppCompatActivity() {
             val text_clc = textClock.text.toString()
             editor.putString("date_time", textClock.text.toString())
             editor.apply()
+
             saveFireStore(bpm, text_clc, email, full_name)
         }
     }
@@ -142,6 +154,10 @@ class HeartRate_pg : AppCompatActivity() {
                 "name" to full_name
             )
 
+        if(email == "0"){
+            Toast.makeText(applicationContext, "Need G-MAIL SIGNUP to save", Toast.LENGTH_SHORT).show()
+        }
+        else{
             db.collection(email)
                 .add(user)
                 .addOnSuccessListener {
