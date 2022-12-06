@@ -58,6 +58,13 @@
         <item name="android:background">@color/transparent</item>
     </style>
 
+    <style name="graph">
+        <item name="android:layout_width">350dp</item>
+        <item name="android:layout_height">200dp</item>
+        <item name="android:description">@string/displayHR</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
+
     <style name="heartRate" parent="android:Widget.TextView">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
