@@ -1,6 +1,5 @@
 package com.example.app
 import android.content.ContentValues.TAG
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -20,11 +19,6 @@ class HeartRate_pg : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_heart_rate_pg)
         Log.d("MyHeartBeat", "HeartRate page created")
-
-        val backbtn = findViewById<Button>(R.id.backbtn)
-        backbtn.setOnClickListener {
-            finish()
-        }
 
         val textClock = findViewById<TextClock>(R.id.Time)
         val savebtn = findViewById<Button>(R.id.button)

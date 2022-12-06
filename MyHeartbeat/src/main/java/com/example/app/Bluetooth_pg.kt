@@ -35,11 +35,6 @@ class Bluetooth_pg : AppCompatActivity() {
         setContentView(R.layout.activity_bluetooth_pg)
         Log.d("MyHeartBeat", "Bluetooth page create")
 
-        val backbtn = findViewById<Button>(R.id.backbtn)
-        backbtn.setOnClickListener {
-            finish()
-        }
-
         /*Bluetooth Adapter and Manager declaration */
         val askBTpermission = ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH)
         bluetoothManager = getSystemService(BluetoothManager::class.java)

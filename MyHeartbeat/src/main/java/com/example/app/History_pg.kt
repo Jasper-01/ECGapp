@@ -1,9 +1,7 @@
 package com.example.app
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,11 +20,6 @@ class History_pg : AppCompatActivity() {
         Log.d("MyHeartBeat", "History page created")
         val sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE)
         val email = sharedPreferences.getString("email", "0").toString()
-
-        val backbtn = findViewById<Button>(R.id.backbtn)
-        backbtn.setOnClickListener {
-            finish()
-        }
 
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(applicationContext)
