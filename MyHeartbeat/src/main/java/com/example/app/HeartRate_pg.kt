@@ -16,9 +16,10 @@ import com.google.firebase.auth.ktx.auth
 
 private lateinit var auth: FirebaseAuth
 
-class HeartRate_pg : AppCompatActivity() {
+class HeartRate_pg : ThemeChange() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme()
         setContentView(R.layout.activity_heart_rate_pg)
         Log.d("MyHeartBeat", "HeartRate page created")
 

@@ -26,10 +26,11 @@ private lateinit var auth: FirebaseAuth
 @SuppressLint("StaticFieldLeak")
 private lateinit var  googleSignInClient: GoogleSignInClient
 
-class UserInfo_pg :AppCompatActivity() {
+class UserInfo_pg : ThemeChange() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
+        setTheme()
         setContentView(R.layout.user_info_pg)
         auth = FirebaseAuth.getInstance()
         val google_sign = findViewById<Button>(R.id.google_signin)

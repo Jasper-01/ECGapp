@@ -7,10 +7,11 @@ import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 
-class Credits_pg : AppCompatActivity() {
+class Credits_pg : ThemeChange() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme()
         setContentView(R.layout.activity_credits_pg)
         Log.d("MyHeartBeat", "Credits page create")
 

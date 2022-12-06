@@ -12,7 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 
-class Main_pg : AppCompatActivity() {
+class Main_pg : ThemeChange() {
 
     private var doubleBackToExitPressedOnce = false
     private lateinit var auth: FirebaseAuth
@@ -20,6 +20,7 @@ class Main_pg : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme()
         setContentView(R.layout.activity_main)
         Log.d("MyHeartBeat", "Homepage create")
         auth = FirebaseAuth.getInstance()
@@ -39,6 +40,8 @@ class Main_pg : AppCompatActivity() {
         TChanger.setOnClickListener {
 //            this.setTheme(R.style.MainPgTheme)
 //            applicationContext.setTheme(R.style.MainPgTheme)
+            switchTheme()
+            recreate()
         }
 
         heartRate.setOnClickListener {

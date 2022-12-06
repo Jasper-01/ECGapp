@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.*
 
-class History_pg : AppCompatActivity() {
+class History_pg : ThemeChange() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var userArrayList: ArrayList<user>
     private lateinit var adapter: adapter
@@ -19,6 +19,7 @@ class History_pg : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme()
         setContentView(R.layout.history_pg)
         Log.d("MyHeartBeat", "History page created")
         val sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE)
