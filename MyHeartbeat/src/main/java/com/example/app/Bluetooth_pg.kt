@@ -3,6 +3,7 @@
 package com.example.app
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothManager
@@ -11,32 +12,56 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.provider.Settings
 import android.util.Log
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
 class Bluetooth_pg : AppCompatActivity() {
-    private lateinit var onOffButton : Button
-    private lateinit var status : TextView
-    private lateinit var onOffImage : ImageView
+    private lateinit var onOffButton: Button
+    private lateinit var status: TextView
+    private lateinit var onOffImage: ImageView
+    private lateinit var showDevicesNearby: Button
+    private lateinit var listPairedDevices: ListView
     private lateinit var bluetoothManager: BluetoothManager
     private lateinit var bluetoothAdapter: BluetoothAdapter
 
-    private val REQUEST_CODE_ENABLE_BT : Int = 1
+    var mDeviceList = ArrayList<String>()
+    var devices = 0
+
+    private val REQUEST_CODE_ENABLE_BT: Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bluetooth_pg)
         Log.d("MyHeartBeat", "Bluetooth page create")
 
+        /* check bluetooth permissions*/
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            Log.d("MyHeartBeat", "Bluetooth permission request.")
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.BLUETOOTH_CONNECT),
+                    2
+                )
+                return
+            } else if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH) == PackageManager.PERMISSION_GRANTED){
+                Log.d("MyHeartBeat", "BLUETOOTH permission already granted")
+            }
+        } else {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH) == PackageManager.PERMISSION_GRANTED) {
+                Log.d("MyHeartBeat", "BLUETOOTH permission already granted")
+            } else {
+                Log.d("MyHeartBeat", "Bluetooth permission request.")
+                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.BLUETOOTH), 99)
+            }
+        }
+
         /*Bluetooth Adapter and Manager declaration */
-        val askBTpermission = ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH)
         bluetoothManager = getSystemService(BluetoothManager::class.java)
         bluetoothAdapter = bluetoothManager.adapter
 
@@ -44,25 +69,30 @@ class Bluetooth_pg : AppCompatActivity() {
         onOffButton = findViewById(R.id.OnOffButton)
         status = findViewById(R.id.BluetoothStatus)
         onOffImage = findViewById(R.id.OnOff_Image)
-        val deviceName = findViewById<TextView>(R.id.DeviceName)
-        val deviceAddress = findViewById<TextView>(R.id.deviceAddress)
-        val showDevices = findViewById<Button>(R.id.listDevices)
+        showDevicesNearby = findViewById(R.id.showDevicesNearby)
+        listPairedDevices = findViewById(R.id.listPairedDevice)
 
         /* only shows Toast text once */
-        if(bluetoothAdapter == null){
-            Toast.makeText(applicationContext, "Bluetooth is not available on this device", Toast.LENGTH_SHORT).show()
+        if (bluetoothAdapter == null) {
+            Toast.makeText(
+                applicationContext,
+                "Bluetooth is not available on this device",
+                Toast.LENGTH_SHORT
+            ).show()
             statusUnavailable()
         }
 
         /* Bluetooth check every 3 seconds
         * status check instead of re-creating the page over*/
         val bluetoothCheck = Handler()
-        val bluetoothCheckRun = object : Runnable{
+        val bluetoothCheckRun = object : Runnable {
             override fun run() {
                 /* check if BLUETOOTH availability*/
-                when(bluetoothAdapter.isEnabled) {
-                    true -> {  // can be either on or connected
+                when (bluetoothAdapter.isEnabled) {
+                    true -> {
+                        listPairedDevices = findViewById(R.id.listPairedDevice)
                         statusOn()
+                        getBluetoothPairedDevices(mDeviceList,listPairedDevices)
                     }
                     false -> statusOff()
                     else -> statusUnavailable()
@@ -73,28 +103,14 @@ class Bluetooth_pg : AppCompatActivity() {
         }
         bluetoothCheck.postDelayed(bluetoothCheckRun, 1000)
 
-        /* check bluetooth permissions*/
-        if (askBTpermission == PackageManager.PERMISSION_GRANTED) {
-            Log.d("MyHeartBeat", "BLUETOOTH permission already granted")
-        } else {
-            Log.d("MyHeartBeat", "BLUETOOTH permission request")
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.BLUETOOTH), 99)
-        }
-
         onOffButton.setOnClickListener {
-            when(bluetoothAdapter.isEnabled){
+            when (bluetoothAdapter.isEnabled) {
                 true -> {
                     bluetoothAdapter.disable()
+                    listPairedDevices.adapter = null
                     Toast.makeText(applicationContext, "Turned off Bluetooth", Toast.LENGTH_SHORT).show()
-                    statusOff()
                 }
-                false ->{
-                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S){
-                        requestMultiplePermissions.launch(arrayOf(
-                            Manifest.permission.BLUETOOTH_SCAN,
-                            Manifest.permission.BLUETOOTH_CONNECT
-                        ))
-                    }
+                false -> {
                     val intentBT = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
                     startActivityForResult(intentBT, REQUEST_CODE_ENABLE_BT)
                     if (callingActivity != null) {
@@ -107,21 +123,35 @@ class Bluetooth_pg : AppCompatActivity() {
                     }
                 }
                 else -> {
-                    Toast.makeText(applicationContext, "Bluetooth is not available on this device", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        applicationContext,
+                        "Bluetooth is not available on this device",
+                        Toast.LENGTH_SHORT
+                    ).show()
                     statusUnavailable()
                 }
             }
         }
 
-        showDevices.setOnClickListener {
+        showDevicesNearby.setOnClickListener {
             if (bluetoothAdapter.isEnabled) {
-
+                val intentOpenBluetoothSettings = Intent()
+                intentOpenBluetoothSettings.action = Settings.ACTION_BLUETOOTH_SETTINGS
+                startActivity(intentOpenBluetoothSettings)
             } else if (!bluetoothAdapter.isEnabled) {
                 Log.d("MyHeartBeat", "List Bluetooth devices failed : Bluetooth is disabled")
-                Toast.makeText(applicationContext, "Please enable Bluetooth first", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    applicationContext,
+                    "Please enable Bluetooth first",
+                    Toast.LENGTH_SHORT
+                ).show()
             } else {
                 Log.d("MyHeartBeat", "List Bluetooth devices failed : Bluetooth unavailable")
-                Toast.makeText(applicationContext, "Bluetooth is unavailable on this device", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    applicationContext,
+                    "Bluetooth is unavailable on this device",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
@@ -133,12 +163,16 @@ class Bluetooth_pg : AppCompatActivity() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
-        when(requestCode){
+        when (requestCode) {
             99 -> {
-                if(grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     Log.d("MyHeartBeat", "BLUETOOTH permission granted")
-                } else{
-                    Toast.makeText(applicationContext, "App requires Bluetooth permissions", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(
+                        applicationContext,
+                        "App requires Bluetooth permissions",
+                        Toast.LENGTH_SHORT
+                    ).show()
                     Log.d("MyHeartBeat", "BLUETOOTH permission not granted")
                 }
             }
@@ -148,12 +182,13 @@ class Bluetooth_pg : AppCompatActivity() {
     @Deprecated("Deprecated in Java")
     override fun startActivityForResult(intent: Intent?, requestCode: Int, options: Bundle?) {
         super.startActivityForResult(intent, requestCode, options)
-        when(requestCode){ REQUEST_CODE_ENABLE_BT ->
-            if (requestCode == Activity.RESULT_OK){
-                Log.d("MyHeartBeat", "Bluetooth enable approved")
-            } else{
-                Log.d("MyHeartBeat", "BLUETOOTH enable denied")
-            }
+        when (requestCode) {
+            REQUEST_CODE_ENABLE_BT ->
+                if (requestCode == Activity.RESULT_OK) {
+                    Log.d("MyHeartBeat", "Bluetooth enable approved")
+                } else {
+                    Log.d("MyHeartBeat", "BLUETOOTH enable denied")
+                }
         }
     }
 
@@ -164,38 +199,61 @@ class Bluetooth_pg : AppCompatActivity() {
             }
         }
 
-    private fun statusOn(){
+    private fun statusOn() {
         Log.d("MyHeartBeat", "BLUETOOTH status on")
         status.setText(R.string.bluetooth_status_on)
         onOffImage.setImageResource(R.drawable.ic_bluetooth_on)
         onOffButton.setText(R.string.turn_off)
     }
 
-    private fun statusOff(){
+    private fun statusOff() {
         Log.d("MyHeartBeat", "BLUETOOTH status off")
         status.setText(R.string.bluetooth_status_off)
         onOffImage.setImageResource(R.drawable.ic_bluetooth_disable)
         onOffButton.setText(R.string.turn_on)
     }
 
-    private fun statusUnavailable(){
+    private fun statusUnavailable() {
         Log.d("MyHeartBeat", "BLUETOOTH status unavailable")
         status.setText(R.string.bluetooth_not_supported)
         onOffImage.setImageResource(R.drawable.ic_bluetooth_disable)
         onOffButton.setText(R.string.turn_on)
     }
 
-    private fun statusConnected(){
-        Log.d("MyHeartBeat", "BLUETOOTH status connected")
-        status.setText(R.string.bluetooth_status_connected)
-        onOffImage.setImageResource(R.drawable.ic_bluetooth_connected)
-        onOffButton.setText(R.string.turn_off)
+    @SuppressLint("MissingPermission")
+    private fun getBluetoothPairedDevices(deviceList: ArrayList<String>, listView: ListView) {
+        val bluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
+        if (bluetoothAdapter == null) {
+            Toast.makeText(
+                applicationContext,
+                "This device not support bluetooth",
+                Toast.LENGTH_LONG
+            ).show()
+        } else {
+            if (!bluetoothAdapter.isEnabled) {
+                val enableAdapter = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
+                startActivityForResult(enableAdapter, 0)
+            }
+            val all_devices = bluetoothAdapter.bondedDevices
+            if(devices == all_devices.size){
+                return
+            } else if (all_devices.size > 0) {
+                devices = 0
+                deviceList.clear()
+                for (currentDevice in all_devices) {
+                    devices += 1
+                    deviceList.add(
+                        """
+                        Device Name: ${currentDevice.name}
+                        Device Address: ${currentDevice.address}
+                        """.trimIndent()
+                    )
+                    listView.adapter = ArrayAdapter<Any?>(
+                        application,
+                        android.R.layout.simple_list_item_1, deviceList as List<Any?>
+                    )
+                }
+            }
+        }
     }
-
-//    fun showPopup(v: View){
-//        val popup = PopupMenu(this, v)
-//        val inflater: MenuInflater = popup.menuInflater
-//        inflater.inflate(R.menu.actions, popup.menu)
-//        popup.show()
-//    }
 }
