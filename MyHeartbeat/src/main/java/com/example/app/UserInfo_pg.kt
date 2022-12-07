@@ -44,7 +44,6 @@ class UserInfo_pg : AppCompatActivity() {
         val TF = sharedPreferences.getInt("T/F", 0)
         val email = sharedPreferences.getString("email", "0").toString()
         val full_name = sharedPreferences.getString("full_name", "0").toString()
-
         if(TF == 0){
             google_sign.setOnClickListener {
                 signInGoogle()
