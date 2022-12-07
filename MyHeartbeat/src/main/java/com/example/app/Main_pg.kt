@@ -1,6 +1,8 @@
 package com.example.app
 
 import android.annotation.SuppressLint
+import android.bluetooth.BluetoothAdapter
+import android.bluetooth.BluetoothManager
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -9,13 +11,15 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class Main_pg : ThemeChange() {
 
     private var doubleBackToExitPressedOnce = false
     private lateinit var auth: FirebaseAuth
+
+    private lateinit var bluetoothManager: BluetoothManager
+    private lateinit var bluetoothAdapter: BluetoothAdapter
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +35,9 @@ class Main_pg : ThemeChange() {
         val settings = findViewById<Button>(R.id.UserInfo)
         val credits = findViewById<Button>(R.id.Credits)
 
+        bluetoothManager = getSystemService(BluetoothManager::class.java)
+        bluetoothAdapter = bluetoothManager.adapter
+
         val backBtn:View = findViewById<Button>(R.id.backbtn)
         backBtn.setOnClickListener {
             finishAffinity()
@@ -45,13 +52,23 @@ class Main_pg : ThemeChange() {
         }
 
         heartRate.setOnClickListener {
-            val Intent = Intent(this, HeartRate_pg::class.java)
-            startActivity(Intent)
+            if(BluetoothObj.checkBTpermissions(this)) {
+                val Intent = Intent(this, HeartRate_pg::class.java)
+                startActivity(Intent)
+            } else {
+                Toast.makeText(applicationContext, "Please allow bluetooth permissions", Toast.LENGTH_SHORT).show()
+                BluetoothObj.requestBTPermissions(this)
+            }
         }
 
         bluetooth.setOnClickListener {
-            val Intent = Intent(this, Bluetooth_pg::class.java)
-            startActivity(Intent)
+            if(BluetoothObj.checkBTpermissions(this)) {
+                val Intent = Intent(this, Bluetooth_pg::class.java)
+                startActivity(Intent)
+            } else {
+                Toast.makeText(applicationContext, "Please allow bluetooth permissions", Toast.LENGTH_SHORT).show()
+                BluetoothObj.requestBTPermissions(this)
+            }
         }
 
         friends.setOnClickListener {

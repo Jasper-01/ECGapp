@@ -2,16 +2,12 @@
 
 package com.example.app
 
-import android.Manifest
 import android.annotation.SuppressLint
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothManager
 import android.bluetooth.BluetoothSocket
 import android.content.ContentValues.TAG
-import android.content.Intent
-import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
@@ -20,9 +16,6 @@ import android.widget.Button
 import android.widget.TextClock
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.jjoe64.graphview.GraphView
@@ -58,28 +51,6 @@ class HeartRate_pg : ThemeChange() {
         setTheme()
         setContentView(R.layout.activity_heart_rate_pg)
         Log.d("MyHeartBeat", "HeartRate page created")
-
-        /* check bluetooth permissions*/
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            Log.d("MyHeartBeat", "Bluetooth permission request.")
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(
-                    this,
-                    arrayOf(Manifest.permission.BLUETOOTH_CONNECT),
-                    2
-                )
-                return
-            } else if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH) == PackageManager.PERMISSION_GRANTED){
-                Log.d("MyHeartBeat", "BLUETOOTH permission already granted")
-            }
-        } else {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH) == PackageManager.PERMISSION_GRANTED) {
-                Log.d("MyHeartBeat", "BLUETOOTH permission already granted")
-            } else {
-                Log.d("MyHeartBeat", "BLUETOOTH permission request.")
-                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.BLUETOOTH), 99)
-            }
-        }
 
         textClock = findViewById(R.id.Time)
         savebtn = findViewById(R.id.button)
@@ -158,6 +129,7 @@ class HeartRate_pg : ThemeChange() {
 
     @SuppressLint("MissingPermission")
     private fun doBluetoothStuff(graph : GraphView) {
+
         bpm = findViewById(R.id.HeartRateStats)
 
         bluetoothManager = getSystemService(BluetoothManager::class.java)
@@ -183,15 +155,18 @@ class HeartRate_pg : ThemeChange() {
 
             true -> {
                 bluetoothThing = bluetoothAdapter.getRemoteDevice("98:DA:60:02:B9:DC")
+//                bluetoothThing = bluetoothAdapter.getRemoteDevice("98:DA:60:02:6C:CD")
                 var counter = 0
                 do{
                     try{
                         bluetoothSocket = bluetoothThing.createRfcommSocketToServiceRecord(mUUID)
-                        println(bluetoothSocket)
-                        bluetoothSocket!!.connect()
-                        println(bluetoothSocket!!.isConnected)
+                        bluetoothSocket?.connect()
+                        Log.d("MyHeartBeat", "Connection success")
                     } catch (e : IOException){
                         e.printStackTrace()
+                        Log.d("MyHeartBeat", "Connection failed")
+                        Toast.makeText(applicationContext, "Please ensure the device is on and paired", Toast.LENGTH_SHORT).show()
+                        return
                     }
                     counter++
                 } while (!bluetoothSocket!!.isConnected && counter < 3)
@@ -206,23 +181,32 @@ class HeartRate_pg : ThemeChange() {
                         try{
                             inputStream = bluetoothSocket!!.inputStream
                             inputStream.skip(inputStream.available().toLong())
-
-                            for (i in 0..100) {
-                                this@HeartRate_pg.runOnUiThread {
-//                                    for(j in 0..doubleSize) {
-//                                        byteBuffer[j] = inputStream.read().toByte()
-//                                    }
-//                                    y = byteBuffer.toString().toDouble()
-                                    y = 0.1
-                                    x += 0.01
-                                    series.appendData(DataPoint(x, y), true, 300)
-                                }
+                            for(i in 0..100){
+                                println(inputStream.read().toFloat())
                             }
+//                            for (i in 0..100) {
+//                                for (i in 0..100) {
+//                                    this@HeartRate_pg.runOnUiThread {
+//                                    for(j in 0..(doubleSize+1)) {
+//                                        byteBuffer[j] = inputStream.read().toByte()
+//                                        println(j.toChar())
+//                                    }
+//                                    println(byteBuffer.toString())
+//                                    y = byteBuffer.toString().toDouble()
+//                                    var test = inputStream.read().toByte().toChar()
+//                                        println(inputStream.read().toByte().toChar())
+//                                    y = inputStream.read()
+//                                        y = 0.1
+//                                        x += 0.01
+//                                        series.appendData(DataPoint(x, y), true, 300)
+//                                    }
+//                                }
                         } catch (e : IOException){
                             e.printStackTrace()
                             Log.d("MyHeartBeat", "No input data / Graph could not be plot")
+                            return
                         }
-                        graph.addSeries(series)
+//                            graph.addSeries(series)
                         handler.postDelayed(this, 1000)
                     }
                 }
