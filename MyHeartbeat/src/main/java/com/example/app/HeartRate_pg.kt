@@ -58,25 +58,9 @@ class HeartRate_pg : ThemeChange() {
         }
 
         /* check bluetooth permissions*/
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            Log.d("MyHeartBeat", "Bluetooth permission request.")
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(
-                    this,
-                    arrayOf(Manifest.permission.BLUETOOTH_CONNECT),
-                    2
-                )
-                return
-            } else if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH) == PackageManager.PERMISSION_GRANTED){
-                Log.d("MyHeartBeat", "BLUETOOTH permission already granted")
-            }
-        } else {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH) == PackageManager.PERMISSION_GRANTED) {
-                Log.d("MyHeartBeat", "BLUETOOTH permission already granted")
-            } else {
-                Log.d("MyHeartBeat", "BLUETOOTH permission request.")
-                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.BLUETOOTH), 99)
-            }
+        if(!BluetoothObj.checkBTpermissions(this)) {
+            Toast.makeText(applicationContext, "Please allow bluetooth permissions", Toast.LENGTH_SHORT).show()
+            BluetoothObj.requestBTPermissions(this)
         }
         
         textClock = findViewById(R.id.Time)
