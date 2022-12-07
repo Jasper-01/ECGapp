@@ -57,6 +57,7 @@
     <string name="deviceMAC">Device MAC address:</string>
     <string name="deviceTimeZone">Device Time Zone:</string>
     <string name="paired_devices">Paired Devices:</string>
+ />
 
     <string-array name="sampleHistory">
         <item>2022, October 27 (Thu) 18:54:59\n85 BPM</item>
