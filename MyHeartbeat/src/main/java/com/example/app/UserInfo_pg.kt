@@ -33,7 +33,7 @@ class UserInfo_pg : ThemeChange() {
         auth = FirebaseAuth.getInstance()
         val google_sign = findViewById<Button>(R.id.google_signin)
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestIdToken("250881286719-fsfnhu3sfio4d2ui6rjua357c5ghoetr.apps.googleusercontent.com")
             .requestEmail()
             .build()
 
@@ -43,7 +43,6 @@ class UserInfo_pg : ThemeChange() {
         val TF = sharedPreferences.getInt("T/F", 0)
         val email = sharedPreferences.getString("email", "0").toString()
         val full_name = sharedPreferences.getString("full_name", "0").toString()
-
         if(TF == 0){
             google_sign.setOnClickListener {
                 signInGoogle()
