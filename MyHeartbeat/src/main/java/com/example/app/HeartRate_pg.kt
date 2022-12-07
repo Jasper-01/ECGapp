@@ -24,11 +24,12 @@ import com.jjoe64.graphview.series.DataPoint
 import com.jjoe64.graphview.series.LineGraphSeries
 import java.io.IOException
 import java.io.InputStream
+import java.nio.charset.StandardCharsets
 import java.util.*
 
 class HeartRate_pg : ThemeChange() {
 
-    val doubleSize = Double.SIZE_BYTES
+    val floatSize = Float.SIZE_BYTES
 
     private lateinit var bluetoothManager: BluetoothManager
     private lateinit var bluetoothAdapter: BluetoothAdapter
@@ -81,8 +82,8 @@ class HeartRate_pg : ThemeChange() {
         viewport.setMinX(0.0)
         viewport.setMaxX(3.0)
         viewport.setMinY(0.0)
-        viewport.setMaxY(1.0)
-//        viewport.setMaxY(10.0)
+//        viewport.setMaxY(1.0)
+        viewport.setMaxY(600.0)
 
         viewport.isScrollable = true
         graph.gridLabelRenderer.isHorizontalLabelsVisible = false
@@ -184,44 +185,29 @@ class HeartRate_pg : ThemeChange() {
 
                 val handler = Handler()
                 val runnable = object : Runnable {
+                    var byteBuffer : ByteArray = ByteArray(floatSize)
+
                     override fun run() {
                         var inputStream: InputStream?
-                        var byteBuffer : ByteArray = byteArrayOf()
 
                         bpm.text = "--BPM"
                         try{
                             inputStream = bluetoothSocket!!.inputStream
                             inputStream.skip(inputStream.available().toLong())
-                            for(i in 0..100){
-                                println(inputStream.read().toFloat())
-                            }
-//                            for (i in 0..100) {
-//                                for (i in 0..100) {
-//                                    this@HeartRate_pg.runOnUiThread {
-//                                    for(j in 0..(doubleSize+1)) {
-//                                        byteBuffer[j] = inputStream.read().toByte()
-//                                        println(j.toChar())
-//                                    }
-//                                    println(byteBuffer.toString())
-//                                    y = byteBuffer.toString().toDouble()
-//                                    var test = inputStream.read().toByte().toChar()
-//                                        println(inputStream.read().toByte().toChar())
-//                                    y = inputStream.read()
-//                                        y = 0.1
-//                                        x += 0.01
-//                                        series.appendData(DataPoint(x, y), true, 300)
-//                                    }
-//                                }
+                            x += 0.1
+                            inputStream.read(byteBuffer)
+                            y = String(byteBuffer, StandardCharsets.UTF_8).toDouble()
+                            series.appendData(DataPoint(x, y), true, 500)
+                            graph.addSeries(series)
                         } catch (e : IOException){
                             e.printStackTrace()
                             Log.d("MyHeartBeat", "No input data / Graph could not be plot")
                             return
                         }
-//                            graph.addSeries(series)
-                        handler.postDelayed(this, 1000)
+                        handler.postDelayed(this, 100)
                     }
                 }
-                handler.postDelayed(runnable, 1000)
+                handler.postDelayed(runnable, 100)
             }
         }
     }
