@@ -59,6 +59,13 @@ class HeartRate_pg : ThemeChange() {
         setContentView(R.layout.activity_heart_rate_pg)
         Log.d("MyHeartBeat", "HeartRate page created")
 
+        val backBtn: View = findViewById<Button>(R.id.backbtn)
+        backBtn.setOnClickListener {
+            val intent = Intent(this, Main_pg::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         /* check bluetooth permissions*/
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             Log.d("MyHeartBeat", "Bluetooth permission request.")

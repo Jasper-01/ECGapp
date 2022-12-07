@@ -38,8 +38,6 @@ class Main_pg : ThemeChange() {
 
         val TChanger: View = findViewById<Button>(R.id.themeChanger)
         TChanger.setOnClickListener {
-//            this.setTheme(R.style.MainPgTheme)
-//            applicationContext.setTheme(R.style.MainPgTheme)
             switchTheme()
             recreate()
         }
