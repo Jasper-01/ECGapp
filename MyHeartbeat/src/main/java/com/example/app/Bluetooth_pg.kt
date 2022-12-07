@@ -14,7 +14,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.provider.Settings
 import android.util.Log
-import android.view.View
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
@@ -39,11 +38,6 @@ class Bluetooth_pg : ThemeChange() {
         setTheme()
         setContentView(R.layout.activity_bluetooth_pg)
         Log.d("MyHeartBeat", "Bluetooth page create")
-
-        val backBtn: View = findViewById<Button>(R.id.backbtn)
-        backBtn.setOnClickListener {
-            finish()
-        }
 
         /* check bluetooth permissions*/
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {

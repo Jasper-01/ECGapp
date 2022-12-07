@@ -52,33 +52,6 @@ class HeartRate_pg : ThemeChange() {
         setContentView(R.layout.activity_heart_rate_pg)
         Log.d("MyHeartBeat", "HeartRate page created")
 
-        val backBtn: View = findViewById<Button>(R.id.backbtn)
-        backBtn.setOnClickListener {
-            finish()
-        }
-
-        /* check bluetooth permissions*/
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            Log.d("MyHeartBeat", "Bluetooth permission request.")
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(
-                    this,
-                    arrayOf(Manifest.permission.BLUETOOTH_CONNECT),
-                    2
-                )
-                return
-            } else if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH) == PackageManager.PERMISSION_GRANTED){
-                Log.d("MyHeartBeat", "BLUETOOTH permission already granted")
-            }
-        } else {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH) == PackageManager.PERMISSION_GRANTED) {
-                Log.d("MyHeartBeat", "BLUETOOTH permission already granted")
-            } else {
-                Log.d("MyHeartBeat", "BLUETOOTH permission request.")
-                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.BLUETOOTH), 99)
-            }
-        }
-        
         textClock = findViewById(R.id.Time)
         savebtn = findViewById(R.id.button)
         val sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE)
