@@ -42,8 +42,6 @@ class Bluetooth_pg : ThemeChange() {
 
         val backBtn: View = findViewById<Button>(R.id.backbtn)
         backBtn.setOnClickListener {
-            val intent = Intent(this, Main_pg::class.java)
-            startActivity(intent)
             finish()
         }
 
