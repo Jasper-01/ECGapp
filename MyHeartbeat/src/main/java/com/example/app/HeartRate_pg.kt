@@ -36,7 +36,7 @@ class HeartRate_pg : ThemeChange() {
     private lateinit var bluetoothThing : BluetoothDevice
     private var bluetoothSocket : BluetoothSocket? = null
 
-    val mUUID: UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB")
+    private val mUUID: UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB")
 
     private lateinit var series: LineGraphSeries<DataPoint>
     private lateinit var graph: GraphView
@@ -47,6 +47,11 @@ class HeartRate_pg : ThemeChange() {
     private lateinit var bpm : TextView
 
     var x = 0.0
+    var checkBPMcount = 0
+    var BPM = 0
+    var BPMtotal = 0.0
+    var outTest = 0.0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme()
@@ -65,7 +70,10 @@ class HeartRate_pg : ThemeChange() {
         }
         
         textClock = findViewById(R.id.Time)
+        textClock.format12Hour = null
+        textClock.format24Hour = "yyyy-MM-dd (E) HH:mm:ss"
         savebtn = findViewById(R.id.button)
+
         val sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
@@ -187,10 +195,10 @@ class HeartRate_pg : ThemeChange() {
                 val runnable = object : Runnable {
                     var byteBuffer : ByteArray = ByteArray(floatSize)
 
+                    @SuppressLint("SetTextI18n")
                     override fun run() {
-                        var inputStream: InputStream?
+                        val inputStream: InputStream?
 
-                        bpm.text = "--BPM"
                         try{
                             inputStream = bluetoothSocket!!.inputStream
                             inputStream.skip(inputStream.available().toLong())
@@ -199,12 +207,13 @@ class HeartRate_pg : ThemeChange() {
                             y = String(byteBuffer, StandardCharsets.UTF_8).toDouble()
                             series.appendData(DataPoint(x, y), true, 500)
                             graph.addSeries(series)
+                            
                         } catch (e : IOException){
                             e.printStackTrace()
                             Log.d("MyHeartBeat", "No input data / Graph could not be plot")
                             return
                         }
-                        handler.postDelayed(this, 100)
+                        handler.postDelayed(this, 100) // 10 data points per second
                     }
                 }
                 handler.postDelayed(runnable, 100)
