@@ -38,6 +38,8 @@ class Main_pg : ThemeChange() {
         bluetoothManager = getSystemService(BluetoothManager::class.java)
         bluetoothAdapter = bluetoothManager.adapter
 
+        BluetoothObj.requestBTPermissions(this)
+
         val backBtn:View = findViewById<Button>(R.id.backbtn)
         backBtn.setOnClickListener {
             finishAffinity()
