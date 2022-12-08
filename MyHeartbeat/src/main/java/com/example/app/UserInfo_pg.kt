@@ -11,7 +11,6 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -24,11 +23,11 @@ private lateinit var auth: FirebaseAuth
 @SuppressLint("StaticFieldLeak")
 private lateinit var  googleSignInClient: GoogleSignInClient
 
-class UserInfo_pg : AppCompatActivity() {
+class UserInfo_pg : ThemeChange() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
-/*        setTheme()*/
+        setTheme()
 
         setContentView(R.layout.user_info_pg)
         auth = FirebaseAuth.getInstance()
