@@ -47,10 +47,9 @@ class HeartRate_pg : ThemeChange() {
     private lateinit var bpm : TextView
 
     var x = 0.0
-    var checkBPMcount = 0
-    var BPM = 0
-    var BPMtotal = 0.0
-    var outTest = 0.0
+    var bpmDivision = 0
+    var bpmTotal = 0.0
+    var bpmOut = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -88,10 +87,9 @@ class HeartRate_pg : ThemeChange() {
         viewport.isYAxisBoundsManual = true
         viewport.isXAxisBoundsManual = true
         viewport.setMinX(0.0)
-        viewport.setMaxX(3.0)
+        viewport.setMaxX(3.5)
         viewport.setMinY(0.0)
-//        viewport.setMaxY(1.0)
-        viewport.setMaxY(600.0)
+        viewport.setMaxY(1.3)
 
         viewport.isScrollable = true
         graph.gridLabelRenderer.isHorizontalLabelsVisible = false
@@ -205,13 +203,24 @@ class HeartRate_pg : ThemeChange() {
                             x += 0.1
                             inputStream.read(byteBuffer)
                             y = String(byteBuffer, StandardCharsets.UTF_8).toDouble()
-                            series.appendData(DataPoint(x, y), true, 500)
+                            series.appendData(DataPoint(x, y), true, 350)
                             graph.addSeries(series)
-                            
                         } catch (e : IOException){
                             e.printStackTrace()
                             Log.d("MyHeartBeat", "No input data / Graph could not be plot")
                             return
+                        }
+                        when(bpmDivision){
+                            in 0 until 20 ->{
+                                bpmTotal += y
+                                bpmDivision += 1
+                            }
+                            20 ->{
+                                bpmOut = (bpmTotal / (60 / bpmDivision)).toInt()
+                                bpm.setText("$bpmOut BPM")
+                                bpmDivision = 0
+                                bpmTotal = 0.0
+                            }
                         }
                         handler.postDelayed(this, 100) // 10 data points per second
                     }
